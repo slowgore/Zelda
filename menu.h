@@ -19,13 +19,10 @@ class Menu : public QGraphicsView
 public:
     Menu();
     QGraphicsScene * scene_menu;
-    QGraphicsScene * Perdu;
-    QGraphicsPixmapItem * logoPerdu;
     QPushButton * jouer;
     QPushButton * musiquePlay;
     QPushButton * musiqueStop;
     QPushButton * quitter;
-    QGraphicsPixmapItem * logo;
     QMediaPlayer * musique;
 
 
@@ -33,7 +30,6 @@ public:
     Game * game;
 
 public slots:
-    void lose();
     void play();
     void playMusique();
     void stopMusique();
