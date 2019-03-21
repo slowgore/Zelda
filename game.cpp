@@ -11,7 +11,7 @@ void Game::start(){
 
 
     this->view->intinialisationScene();
-    this->view->affichageMenuEnHaut();
+    //this->view->affichageMenuEnHaut();
     this->view->show();
 
 }

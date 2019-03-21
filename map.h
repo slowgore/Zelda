@@ -4,7 +4,7 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
-#include <QMediaPlayer>
+#include <QtMultimedia/QMediaPlayer>
 #include <QKeyEvent>
 
 //#include "game.h"
