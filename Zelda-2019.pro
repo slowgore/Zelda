@@ -28,11 +28,15 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         game.cpp \
-    menu.cpp
+    menu.cpp \
+    map.cpp \
+    model.cpp
 
 HEADERS += \
         game.h \
-    menu.h
+    menu.h \
+    map.h \
+    model.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

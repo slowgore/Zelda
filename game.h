@@ -1,19 +1,23 @@
 #ifndef GAME_H
 #define GAME_H
 
+
 #include <QGraphicsView>
 #include <QWidget>
-#include <QGraphicsScene>
-#include <QMainWindow>
-#include <QMediaPlayer>
-class Game : public QMainWindow
+#include "map.h"
+#include "model.h"
+
+class Map;
+class Game : public QWidget
 {
     Q_OBJECT
 
 public:
-    Game(QWidget *parent = 0);
-    QGraphicsScene * scene;
-    QMediaPlayer * musiqueNiv;
+    QGraphicsScene * Scene;
+    Game(Map *view);
+    void start();
+    Map * view;
+    Model *model;
     ~Game();
 };
 

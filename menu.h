@@ -12,6 +12,8 @@
 #include <QtMultimedia/QMediaPlayer>
 #include <QGraphicsTextItem>
 #include "game.h"
+#include "map.h"
+#include "model.h"
 
 class Menu : public QGraphicsView
 {
@@ -24,10 +26,10 @@ public:
     QPushButton * musiqueStop;
     QPushButton * quitter;
     QMediaPlayer * musique;
-
-
-
     Game * game;
+    Map *view;
+    Model * model;
+
 
 public slots:
     void play();

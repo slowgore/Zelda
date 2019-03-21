@@ -2,6 +2,7 @@
 
 
 
+
 Menu::Menu()
 {
 
@@ -20,7 +21,6 @@ Menu::Menu()
     scene_menu->setBackgroundBrush(QBrush(QImage("../Zelda-2019/images/ecran_pricipal2.jpg")));
 
 
-
     musiquePlay = new QPushButton("musique On");
     musiquePlay->setGeometry(950,800,150,30);
     connect(musiquePlay,SIGNAL(clicked()),this,SLOT(playMusique()));
@@ -31,7 +31,7 @@ Menu::Menu()
     scene_menu->addWidget(musiqueStop);
 
     QFont font ("Arial",40);
-    font.setBold("Bold");
+    font.setBold(5);
     jouer = new QPushButton("Jouer");
     jouer->setFlat(true);
     jouer->setFont(font);
@@ -44,14 +44,18 @@ Menu::Menu()
     quitter->setGeometry(50,800,150,50);
     connect(quitter,SIGNAL(clicked()),this,SLOT(close()));
     scene_menu->addWidget(quitter);
-
     setScene(scene_menu);
+
+    this->view = new Map();
 }
 
 void Menu::play()
 {
-    game = new Game();
     musique->stop();
+    this->close();
+    game = new Game(view);
+    game->start();
+
 
 }
 

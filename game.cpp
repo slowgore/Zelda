@@ -1,15 +1,21 @@
 #include "game.h"
 
-Game::Game(QWidget *parent)
-    : QMainWindow(parent)
+Game::Game(Map *view)
 {
-    scene = new QGraphicsScene();
-    //musiqueNiv = new QMediaPlayer();
-    //musiqueNiv->setMedia(QUrl::fromLocalFile("../Zelda-2019/musique/niveau1.wav"));
-    //musiqueNiv->play();
-    scene->setSceneRect(0,0,1400,900);
-    setFixedSize(1400,900);
+    this->view = view;
+
+    //this->model = model;
 }
+
+void Game::start(){
+
+
+    this->view->intinialisationScene();
+    this->view->affichageMenuEnHaut();
+    this->view->show();
+
+}
+
 
 Game::~Game()
 {
