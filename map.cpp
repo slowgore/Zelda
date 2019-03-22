@@ -3,14 +3,13 @@
 
 Map::Map()
 {
-
     this->mapScene = new QGraphicsScene();
     this->setFixedSize(1400, 900);
     setScene(mapScene);
-
 }
 
-void Map::intinialisationScene(){
+void Map::intinialisationScene()
+{
     //musiqueNiv = new QMediaPlayer();
     //musiqueNiv->setMedia(QUrl::fromLocalFile(":/musique/musique/niveau_principal.wav"));
     musiqueNiv = new QSound(":/musique/musique/niveau_principal.wav");
@@ -33,14 +32,12 @@ void Map::affichageMenuEnHaut()
 }
 
 void Map::background(){
-
 }
 
 void Map::afficherPersonnage(Joueur *joueur)
 {
     QGraphicsPixmapItem *apparencePersonnage =  new QGraphicsPixmapItem(joueur->getTile());
     apparencePersonnage->setPos(joueur->getPosX(),joueur->getPosY());
-
     apparencePersonnage->setZValue(100);//pour etre sur
     this->mapScene->addItem(apparencePersonnage);
 }

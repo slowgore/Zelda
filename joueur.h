@@ -7,13 +7,12 @@
 
 class Joueur : public Personnage
 {
-public:
-    Joueur();
-    QPixmap getTile();
-
 private:
     QPixmap tile;
 
+public:
+    Joueur(int, int);
+    QPixmap getTile();
 };
 
 #endif // JOUEUR_H

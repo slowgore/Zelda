@@ -11,28 +11,24 @@
 
 #include "joueur.h"
 
-class Game;
 class Map : public QGraphicsView
 {
+private:
+//    Game *controller;
+    QGraphicsScene * scene;
+    //QMediaPlayer * musiqueNiv;
+    QSound * musiqueNiv;
+    QGraphicsScene *mapScene;
+
 public:
     Map();
     /*void setControl(Game *controller) {
             //this->game = controller;
     }*/
+    void background();
     void intinialisationScene();
     void affichageMenuEnHaut();
     void afficherPersonnage(Joueur *joueur);
-    QGraphicsScene *mapScene;
-
-//private:
-    void background();
-    Game *controller;
-    QGraphicsScene * scene;
-    //QMediaPlayer * musiqueNiv;
-    QSound * musiqueNiv;
-
-
-
 };
 
 #endif // MAP_H

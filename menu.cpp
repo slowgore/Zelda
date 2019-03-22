@@ -1,39 +1,40 @@
 #include "menu.h"
 
-
-
-
 Menu::Menu()
 {
+    musique = new QSound(":/musique/musique/intro.wav");
+    scene_menu = new QGraphicsScene();
+    musiquePlay = new QPushButton("musique On");
+    musiqueStop = new QPushButton("musique Off");
+    QFont font ("Arial",40);
+    jouer = new QPushButton("Jouer");
+    quitter = new QPushButton("Quitter");
 
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1400,900);
     setWindowTitle("Zelda");
 
-
-    //musique = new QMediaPlayer();
-    //musique->setMedia(QUrl::fromLocalFile(":/musique/musique/intro.wav"));
-    musique = new QSound(":/musique/musique/intro.wav");
+    //debut musique
     musique->play();
 
-    scene_menu = new QGraphicsScene();
+    //fond d'écran
     scene_menu->setSceneRect(0,0,1400,900);
     scene_menu->setBackgroundBrush(QBrush(QImage(":/images/images/ecran_pricipal2.jpg")));
 
-
-    musiquePlay = new QPushButton("musique On");
+    //init boutton musique on
     musiquePlay->setGeometry(950,800,150,30);
     connect(musiquePlay,SIGNAL(clicked()),this,SLOT(playMusique()));
     scene_menu->addWidget(musiquePlay);
-    musiqueStop = new QPushButton("musique Off");
+
+    //init boutton musique off
     musiqueStop->setGeometry(1150,800,150,30);
     connect(musiqueStop,SIGNAL(clicked()),this,SLOT(stopMusique()));
     scene_menu->addWidget(musiqueStop);
 
-    QFont font ("Arial",40);
     font.setBold(5);
-    jouer = new QPushButton("Jouer");
+
+    //lancement jeux
     jouer->setFlat(true);
     jouer->setFont(font);
     jouer->setStyleSheet("background-color: rgba( 255, 255, 255, 30% );" );
@@ -41,7 +42,7 @@ Menu::Menu()
     connect(jouer,SIGNAL(clicked()),this,SLOT(play()));
     scene_menu->addWidget(jouer);
 
-    quitter = new QPushButton("Quitter");
+    //init boutton quitter
     quitter->setGeometry(50,800,150,50);
     connect(quitter,SIGNAL(clicked()),this,SLOT(close()));
     scene_menu->addWidget(quitter);
@@ -52,19 +53,18 @@ Menu::Menu()
 
 void Menu::play()
 {
+    game = new Game(view,model);
     musique->stop();
     this->close();
-    game = new Game(view,model);
     game->start();
-
-
 }
 
-
-void Menu::playMusique(){
+void Menu::playMusique()
+{
     musique->play();
 }
 
-void Menu::stopMusique(){
+void Menu::stopMusique()
+{
     musique->stop();
 }

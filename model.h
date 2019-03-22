@@ -7,20 +7,14 @@
 
 class Model
 {
-public:
-    Model();
-
-    Joueur *getZelda() const;
-    void setZelda(Joueur *value);
-
-    void resetModel();
-
-
 private:
     Joueur *zelda;
 
-
-
+public:
+    Model(int, int);
+    Joueur *getZelda() const;
+    void setZelda(Joueur *value);
+    void resetModel(int, int);
 };
 
 #endif // MODEL_H

@@ -19,19 +19,19 @@
 class Menu : public QGraphicsView
 {
     Q_OBJECT
-public:
-    Menu();
+private:
     QGraphicsScene * scene_menu;
     QPushButton * jouer;
     QPushButton * musiquePlay;
     QPushButton * musiqueStop;
     QPushButton * quitter;
-    //QMediaPlayer * musique;
     QSound * musique;
     Game * game;
     Map *view;
     Model * model;
 
+public:
+    Menu();
 
 public slots:
     void play();
