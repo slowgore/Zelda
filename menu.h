@@ -19,8 +19,7 @@
 class Menu : public QGraphicsView
 {
     Q_OBJECT
-public:
-    Menu();
+private:
     QGraphicsScene * scene_menu;
     QPushButton * jouer;
     QPushButton * musiquePlay;
@@ -33,6 +32,7 @@ public:
 
 
 public slots:
+    Menu();
     void play();
     void playMusique();
     void stopMusique();
