@@ -10,6 +10,4 @@ int main(int argc, char *argv[])
     menu = new Menu();
     menu->show();
     return a.exec();
-
-
 }

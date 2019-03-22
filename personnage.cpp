@@ -8,21 +8,13 @@ Personnage::Personnage()
 
 void Personnage::setPosX(int i)
 {
-    if ((i+this->posX)<0)
-        return;
-    else if ((i+this->posX)>1400)
-        return;
-    else
+    if ((i+this->posX) > 0 && (i+this->posX) < 1400)
         this->posX = i+this->posX;
 }
 
 void Personnage::setPosY(int j)
 {
-    if ((j+this->posY)<0)
-        return;
-    else if ((j+this->posY)>900)
-        return;
-    else
+    if ((j+this->posY) > 0 && (j+this->posY) < 900)
         this->posY = j+this->posY;
 
 }

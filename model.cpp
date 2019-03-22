@@ -3,8 +3,6 @@
 Model::Model()
 {
     this->zelda = new Joueur();
-
-
 }
 
 void Model::resetModel(){
