@@ -1,14 +1,15 @@
 #include "personnage.h"
 
-Personnage::Personnage()
+Personnage::Personnage(int x,int y)
 {
-    this->posX=0;
-    this->posY=0;
+    this->posX = x;
+    this->posY = y;
 }
 
+//je comprend pas pourquoi i + this->posX ????
 void Personnage::setPosX(int i)
 {
-    if ((i+this->posX) > 0 && (i+this->posX) < 1400)
+    if ((i + this->posX) > 0 && (i + this->posX) < 1400)
         this->posX = i+this->posX;
 }
 

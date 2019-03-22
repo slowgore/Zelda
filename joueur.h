@@ -11,7 +11,7 @@ private:
     QPixmap tile;
 
 public:
-    Joueur();
+    Joueur(int x, int y);
     QPixmap getTile();
 };
 
