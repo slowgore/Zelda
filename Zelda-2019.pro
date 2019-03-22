@@ -30,13 +30,17 @@ SOURCES += \
         game.cpp \
     menu.cpp \
     map.cpp \
-    model.cpp
+    model.cpp \
+    personnage.cpp \
+    joueur.cpp
 
 HEADERS += \
         game.h \
     menu.h \
     map.h \
-    model.h
+    model.h \
+    personnage.h \
+    joueur.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

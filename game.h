@@ -13,11 +13,16 @@ class Game : public QWidget
     Q_OBJECT
 
 public:
-    QGraphicsScene * Scene;
-    Game(Map *view);
+    Game(Map *view, Model *model);
     void start();
+
+    Model *getModel() const;
+    void setModel(Model *value);
+
+    QGraphicsScene * Scene;
     Map * view;
     Model *model;
+    //manque un affichage de la scene pour pouvoir afficher le personnage
     ~Game();
 };
 
