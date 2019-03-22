@@ -4,10 +4,11 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsItem>
+#include <QGraphicsPixmapItem>
 #include <QtMultimedia/QMediaPlayer>
 #include <QKeyEvent>
 
-//#include "game.h"
+#include "joueur.h"
 
 class Game;
 class Map : public QGraphicsView
@@ -19,6 +20,7 @@ public:
     }*/
     void intinialisationScene();
     void affichageMenuEnHaut();
+    void afficherPersonnage(Joueur *joueur);
     QGraphicsScene *mapScene;
 
 //private:

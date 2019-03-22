@@ -13,12 +13,12 @@ Menu::Menu()
 
 
     musique = new QMediaPlayer();
-    musique->setMedia(QUrl::fromLocalFile("../Zelda-2019/musique/intro.wav"));
+    musique->setMedia(QUrl::fromLocalFile("C:/Users/marti/Documents/GitHub/Zelda/musique/intro.wav"));
     musique->play();
 
     scene_menu = new QGraphicsScene();
     scene_menu->setSceneRect(0,0,1400,900);
-    scene_menu->setBackgroundBrush(QBrush(QImage("../Zelda-2019/images/ecran_pricipal2.jpg")));
+    scene_menu->setBackgroundBrush(QBrush(QImage("C:/Users/marti/Documents/GitHub/Zelda/images/ecran_pricipal2.jpg")));
 
 
     musiquePlay = new QPushButton("musique On");
@@ -53,7 +53,7 @@ void Menu::play()
 {
     musique->stop();
     this->close();
-    game = new Game(view);
+    game = new Game(view,model);
     game->start();
 
 
