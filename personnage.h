@@ -9,16 +9,16 @@ using namespace std;
 
 class Personnage {
 
+private:
+    int posX;
+    int posY;
+
 public:
     Personnage();
     void setPosX(int i);
     void setPosY(int j);
     int getPosX();
     int getPosY();
-
-private:
-    int posX;
-    int posY;
 };
 
 #endif // PERSONNAGE_H

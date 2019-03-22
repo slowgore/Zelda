@@ -7,7 +7,7 @@
 #include <QGraphicsProxyWidget>
 #include <QObject>
 #include <QGraphicsItem>
-#include<QGraphicsPixmapItem>
+#include <QGraphicsPixmapItem>
 #include <QWidget>
 #include <QtMultimedia/QMediaPlayer>
 #include <QSound>
