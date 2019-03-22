@@ -7,8 +7,8 @@
 
 using namespace std;
 
-class Personnage
-{
+class Personnage {
+
 public:
     Personnage();
     void setPosX(int i);
@@ -19,9 +19,6 @@ public:
 private:
     int posX;
     int posY;
-
-
-
 };
 
 #endif // PERSONNAGE_H

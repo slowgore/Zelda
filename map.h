@@ -5,6 +5,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
+#include <QSound>
 #include <QtMultimedia/QMediaPlayer>
 #include <QKeyEvent>
 
@@ -13,24 +14,21 @@
 class Game;
 class Map : public QGraphicsView
 {
-public:
-    Map();
-    /*void setControl(Game *controller) {
-            //this->game = controller;
-    }*/
-    void intinialisationScene();
-    void affichageMenuEnHaut();
-    void afficherPersonnage(Joueur *joueur);
-    QGraphicsScene *mapScene;
+    public:
+        Map();
+        /*void setControl(Game *controller) {
+                //this->game = controller;
+        }*/
+        void intinialisationScene();
+        void affichageMenuEnHaut();
+        void afficherPersonnage(Joueur *joueur);
+        void background();
 
-//private:
-    void background();
-    Game *controller;
-    QGraphicsScene * scene;
-    QMediaPlayer * musiqueNiv;
-
-
-
+    private:
+        QGraphicsScene *mapScene;
+        Game *controller;
+        QGraphicsScene *scene;
+        QSound *musiqueNiv;
 };
 
 #endif // MAP_H

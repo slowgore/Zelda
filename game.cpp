@@ -8,8 +8,6 @@ Game::Game(Map *view, Model *model)
 }
 
 void Game::start(){
-
-
     this->view->intinialisationScene();
     //this->view->afficherPersonnage(this->getModel()->getZelda());
     //this->view->affichageMenuEnHaut();
@@ -21,6 +19,7 @@ Model *Game::getModel() const
 {
     return model;
 }
+
 void Game::setModel(Model *value)
 {
     model = value;
