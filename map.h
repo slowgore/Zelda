@@ -6,6 +6,7 @@
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
 #include <QtMultimedia/QMediaPlayer>
+#include <QSound>
 #include <QKeyEvent>
 
 #include "joueur.h"
@@ -27,7 +28,8 @@ public:
     void background();
     Game *controller;
     QGraphicsScene * scene;
-    QMediaPlayer * musiqueNiv;
+    //QMediaPlayer * musiqueNiv;
+    QSound * musiqueNiv;
 
 
 

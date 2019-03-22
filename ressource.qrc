@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/musique">
+        <file>musique/intro.wav</file>
+        <file>musique/niveau_principal.wav</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>images/background1.jpg</file>
+        <file>images/ecran_pricipal.jpg</file>
+        <file>images/ecran_pricipal2.jpg</file>
+        <file>images/perdu.png</file>
+        <file>images/zelda.png</file>
+    </qresource>
+</RCC>

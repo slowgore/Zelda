@@ -10,6 +10,7 @@
 #include<QGraphicsPixmapItem>
 #include <QWidget>
 #include <QtMultimedia/QMediaPlayer>
+#include <QSound>
 #include <QGraphicsTextItem>
 #include "game.h"
 #include "map.h"
@@ -25,7 +26,8 @@ public:
     QPushButton * musiquePlay;
     QPushButton * musiqueStop;
     QPushButton * quitter;
-    QMediaPlayer * musique;
+    //QMediaPlayer * musique;
+    QSound * musique;
     Game * game;
     Map *view;
     Model * model;
