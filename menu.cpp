@@ -12,13 +12,13 @@ Menu::Menu()
     setWindowTitle("Zelda");
 
 
-    musique = new QMediaPlayer();
-    musique->setMedia(QUrl::fromLocalFile("C:/Users/marti/Documents/GitHub/Zelda/musique/intro.wav"));
+
+    musique = new QSound(":/musique/musique/intro.wav");
     musique->play();
 
     scene_menu = new QGraphicsScene();
     scene_menu->setSceneRect(0,0,1400,900);
-    scene_menu->setBackgroundBrush(QBrush(QImage("C:/Users/marti/Documents/GitHub/Zelda/images/ecran_pricipal2.jpg")));
+    scene_menu->setBackgroundBrush(QBrush(QImage(":/images/images/ecran_pricipal2.jpg")));
 
 
     musiquePlay = new QPushButton("musique On");
