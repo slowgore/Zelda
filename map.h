@@ -24,13 +24,14 @@ private:
 
 public:
     Map();
-    /*void setControl(Game *controller) {
-            //this->game = controller;
-    }*/
     void background();
+    void reset();
+    void keyPressEvent(QKeyEvent *event);
     void intinialisationScene();
     void affichageMenuEnHaut();
     void afficherPersonnage(Joueur *joueur);
+    QGraphicsScene *getMapScene();
+    Camera *getCameraView();
 };
 
 #endif // MAP_H

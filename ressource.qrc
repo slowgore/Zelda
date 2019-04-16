@@ -10,5 +10,6 @@
         <file>images/perdu.png</file>
         <file>images/zelda.png</file>
         <file>images/grass.png</file>
+        <file>images/sand.png</file>
     </qresource>
 </RCC>

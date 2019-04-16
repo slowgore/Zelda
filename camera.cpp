@@ -10,13 +10,13 @@ void Camera::setPosX(int x)
 {
     //rejouter pour eviter de sortir du cadre
 
-    this->posX = x;
+    this->posX += x;
 }
 
 void Camera::setPosY(int y)
 {
     //rejouter pour eviter de sortir du cadre
-    this->posY = y;
+    this->posY += y;
 }
 
 int Camera::getPosX()
