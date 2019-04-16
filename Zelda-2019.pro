@@ -32,7 +32,8 @@ SOURCES += \
     map.cpp \
     model.cpp \
     personnage.cpp \
-    joueur.cpp
+    joueur.cpp \
+    camera.cpp
 
 HEADERS += \
         game.h \
@@ -40,7 +41,8 @@ HEADERS += \
     map.h \
     model.h \
     personnage.h \
-    joueur.h
+    joueur.h \
+    camera.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

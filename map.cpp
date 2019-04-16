@@ -1,9 +1,11 @@
 #include "map.h"
 #include "game.h"
+#include "camera.h"
 
 Map::Map()
 {
     this->mapScene = new QGraphicsScene();
+    this->cameraView = new Camera();
     this->setFixedSize(1400, 900);
     setScene(mapScene);
 }

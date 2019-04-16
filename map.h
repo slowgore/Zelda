@@ -10,6 +10,7 @@
 #include <QKeyEvent>
 
 #include "joueur.h"
+#include "camera.h"
 
 class Map : public QGraphicsView
 {
@@ -19,6 +20,7 @@ private:
     //QMediaPlayer * musiqueNiv;
     QSound * musiqueNiv;
     QGraphicsScene *mapScene;
+    Camera *cameraView;
 
 public:
     Map();
