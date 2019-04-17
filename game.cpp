@@ -1,8 +1,8 @@
 #include "game.h"
 
-Game::Game(Map *view, Model *model)
+Game::Game(Model *model)
 {
-    this->view = view;
+    this->view = new Map();
     this->timer =  new QTimer(this);
     timer->connect(timer, SIGNAL(timeout()), this, SLOT(showScene()));
     timer->start(20);

@@ -47,13 +47,11 @@ Menu::Menu()
     connect(quitter,SIGNAL(clicked()),this,SLOT(close()));
     scene_menu->addWidget(quitter);
     setScene(scene_menu);
-
-    this->view = new Map();
 }
 
 void Menu::play()
 {
-    game = new Game(view,model);
+    game = new Game(model);
     musique->stop();
     this->close();
     game->start();

@@ -21,7 +21,7 @@ private:
     QAbstractScrollArea *scrool;
 
 public:
-    Game(Map *view, Model *model);
+    Game(Model *model);
     void start();
     Model *getModel() const;
     void setModel(Model *value);

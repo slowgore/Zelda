@@ -11,5 +11,17 @@
         <file>images/zelda.png</file>
         <file>images/grass.png</file>
         <file>images/sand.png</file>
+        <file>images/botom_corner_left_sand.png</file>
+        <file>images/botom_corner_right_sand.png</file>
+        <file>images/botom_sand.png</file>
+        <file>images/left_sand.png</file>
+        <file>images/right_sand.png</file>
+        <file>images/top_corner_left_sand.png</file>
+        <file>images/top_corner_right_sand.png</file>
+        <file>images/top_sand.png</file>
+        <file>images/reverse_botom_corner_left_sand.png</file>
+        <file>images/reverse_botom_corner_right_sand.png</file>
+        <file>images/reverse_top_corner_left_sand.png</file>
+        <file>images/reverse_top_corner_right_sand.png</file>
     </qresource>
 </RCC>

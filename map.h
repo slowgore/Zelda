@@ -11,6 +11,7 @@
 
 #include "joueur.h"
 #include "camera.h"
+#include "niveaux.h"
 
 class Map : public QGraphicsView
 {
@@ -21,6 +22,7 @@ private:
     QSound * musiqueNiv;
     QGraphicsScene *mapScene;
     Camera *cameraView;
+    Niveaux *niveaux;
 
 public:
     Map();
