@@ -25,8 +25,8 @@ public:
     void start();
     Model *getModel() const;
     void setModel(Model *value);
-    void onKeyPress(string key);
-    //manque un affichage de la scene pour pouvoir afficher le personnage
+//    void onKeyPress(string key);
+//    manque un affichage de la scene pour pouvoir afficher le personnage
     ~Game();
 
 public slots:

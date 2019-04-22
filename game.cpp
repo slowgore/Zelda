@@ -22,16 +22,9 @@ void Game::showScene()
     this->view->intinialisationScene();
 }
 
-void Game::onKeyPress(string key)
-{
-    if (key == "right")
-    {
-        this->view->getCameraView()->setPosX(100);
-    }
-    else if (key == "left") {
-        this->view->getCameraView()->setPosX(-100);
-    }
-}
+//void Game::onKeyPress(string key)
+//{
+//}
 
 Model* Game::getModel() const
 {

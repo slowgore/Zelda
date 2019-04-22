@@ -78,6 +78,9 @@ void Map::intinialisationScene()
             else if (niveaux->carte1[i][j] == 14) {
                 im = ":/images/images/top_sand.png";
             }
+            else if (niveaux->carte1[i][j] == 20) {
+                im = ":/images/images/roche.png";
+            }
             else
             {
                 im = ":/images/images/grass.png";
@@ -102,25 +105,33 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Right:
     {
-        this->cameraView->setPosX(10);
+        if (this->cameraView->getPosX() < 1000)
+            this->cameraView->setPosX(10);
+
         break;
     }
 
     case Qt::Key_Left:
     {
-        this->cameraView->setPosX(-10);
+        if (this->cameraView->getPosX() > 0)
+            this->cameraView->setPosX(-10);
+
         break;
     }
 
     case Qt::Key_Down:
     {
-        this->cameraView->setPosY(10);
+        if (this->cameraView->getPosY() < 500)
+            this->cameraView->setPosY(10);
+
         break;
     }
 
     case Qt::Key_Up:
     {
-        this->cameraView->setPosY(-10);
+        if (this->cameraView->getPosY() > 0)
+            this->cameraView->setPosY(-10);
+
         break;
     }
 
