@@ -24,5 +24,6 @@
         <file>images/reverse_top_corner_left_sand.png</file>
         <file>images/reverse_top_corner_right_sand.png</file>
         <file>images/roche.png</file>
+        <file>images/arbre.png</file>
     </qresource>
 </RCC>

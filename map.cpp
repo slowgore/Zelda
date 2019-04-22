@@ -30,6 +30,7 @@ void Map::intinialisationScene()
     //musiqueNiv->setVolume(30);
     mapScene->setSceneRect(cameraView->getPosX(), cameraView->getPosY(), 500, 500);
     QString im = "";
+    int z = 0;
 
     for (int i = 0; i < 20; i++)
     {
@@ -80,6 +81,11 @@ void Map::intinialisationScene()
             }
             else if (niveaux->carte1[i][j] == 20) {
                 im = ":/images/images/roche.png";
+                z = 1;
+            }
+            else if (niveaux->carte1[i][j] == 30) {
+                im = ":/images/images/arbre.png";
+                z = 1;
             }
             else
             {
@@ -90,7 +96,7 @@ void Map::intinialisationScene()
             QGraphicsPixmapItem *pGraphicsPixmapItem = new QGraphicsPixmapItem(image);
             pGraphicsPixmapItem->setPixmap(image);
             pGraphicsPixmapItem->setPos(j*50,i*50);
-            pGraphicsPixmapItem->setZValue(0); // on affecte au fond baige la valeur z=0
+            pGraphicsPixmapItem->setZValue(z); // on affecte au fond baige la valeur z=0
             this->mapScene->addItem(pGraphicsPixmapItem);
         }
     }
