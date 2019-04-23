@@ -1,6 +1,6 @@
 #include "game.h"
 
-Game::Game(Model *model)
+Game::Game()
 {
     this->view = new Map();
     this->timer =  new QTimer(this);
@@ -26,15 +26,6 @@ void Game::showScene()
 //{
 //}
 
-Model* Game::getModel() const
-{
-    return model;
-}
-
-void Game::setModel(Model *value)
-{
-    model = value;
-}
 
 Game::~Game(){
 }

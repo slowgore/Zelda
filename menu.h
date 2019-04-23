@@ -14,7 +14,6 @@
 #include <QGraphicsTextItem>
 #include "game.h"
 #include "map.h"
-#include "model.h"
 
 class Menu : public QGraphicsView
 {
@@ -28,7 +27,6 @@ private:
     QSound * musique;
     Game * game;
     Map *view;
-    Model * model;
 
 public:
     Menu();

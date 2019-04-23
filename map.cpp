@@ -135,7 +135,7 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Up:
     {
-        if (this->cameraView->getPosY() > 0)
+        if (this->cameraView->getPosY() > -70)
             this->cameraView->setPosY(-10);
 
         break;
@@ -175,5 +175,15 @@ QGraphicsScene* Map::getMapScene()
 Camera* Map::getCameraView()
 {
     return cameraView;
+}
+
+Model* Map::getModel() const
+{
+    return model;
+}
+
+void Map::setModel(Model *value)
+{
+    model = value;
 }
 

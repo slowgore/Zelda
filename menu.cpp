@@ -51,7 +51,7 @@ Menu::Menu()
 
 void Menu::play()
 {
-    game = new Game(model);
+    game = new Game();
     musique->stop();
     this->close();
     game->start();

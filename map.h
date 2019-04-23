@@ -12,6 +12,7 @@
 #include "joueur.h"
 #include "camera.h"
 #include "niveaux.h"
+#include "model.h"
 
 class Map : public QGraphicsView
 {
@@ -23,6 +24,7 @@ private:
     QGraphicsScene *mapScene;
     Camera *cameraView;
     Niveaux *niveaux;
+    Model *model;
 
 public:
     Map();
@@ -34,6 +36,8 @@ public:
     void afficherPersonnage(Joueur *joueur);
     QGraphicsScene *getMapScene();
     Camera *getCameraView();
+    Model *getModel() const;
+    void setModel(Model *value);
 };
 
 #endif // MAP_H

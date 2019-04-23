@@ -8,7 +8,6 @@
 #include <QAbstractScrollArea>
 
 #include "map.h"
-#include "model.h"
 
 class Game : public QWidget
 {
@@ -16,15 +15,13 @@ class Game : public QWidget
 private:
     QGraphicsScene * Scene;
     Map * view;
-    Model *model;
     QTimer *timer;
     QAbstractScrollArea *scrool;
 
 public:
-    Game(Model *model);
+    Game();
     void start();
-    Model *getModel() const;
-    void setModel(Model *value);
+
 //    void onKeyPress(string key);
 //    manque un affichage de la scene pour pouvoir afficher le personnage
     ~Game();
