@@ -119,35 +119,31 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Right:
     {
-        if ((this->cameraView->getPosX()+250) <= this->zelda->getPosX()) {
+        if (this->zelda->getPosX() == this->cameraView->getPosX() + 250) {
             if (this->cameraView->getPosX() < 1000)
                 this->cameraView->setPosX(10);
+            this->zelda->setPosX(10);
+        } else {
             if(this->zelda->getPosX() < 1430)
                 this->zelda->setPosX(10);
-            break;
         }
-        if (this->zelda->getPosX() != this->cameraView->getPosX() ) {
-            if(this->zelda->getPosX() < 1430)
-                this->zelda->setPosX(10);
-            break;
-        }
-
+//        if (this->zelda->getPosX() != this->cameraView->getPosX() ) {
+//            if(this->zelda->getPosX() < 1430)
+//                this->zelda->setPosX(10);
+//            break;
+//        }
         break;
     }
 
     case Qt::Key_Left:
     {
-        if(this->zelda->getPosX() <= (this->cameraView->getPosX()+250)){
-            if (this->cameraView->getPosX() > 0 && (this->zelda->getPosX() > 0))
+        if(this->zelda->getPosX() == this->cameraView->getPosX() + 250){
+            if (this->cameraView->getPosX() > 0)
                 this->cameraView->setPosX(-10);
+            this->zelda->setPosX(-10);
+        } else {
             if (this->zelda->getPosX() > 50)
                 this->zelda->setPosX(-10);
-            break;
-        }
-        if (this->zelda->getPosX() != this->cameraView->getPosX()) {
-            if (this->zelda->getPosX() > 50)
-                this->zelda->setPosX(-10);
-            break;
         }
 
         break;
@@ -155,33 +151,27 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Down:
     {
-        if ((this->cameraView->getPosY()+180) <= this->zelda->getPosY()) {
+        if (this->zelda->getPosY() == this->cameraView->getPosY() + 250) {
             if (this->cameraView->getPosY() < 500)
                 this->cameraView->setPosY(10);
+            this->zelda->setPosY(10);
+        } else {
             if (this->zelda->getPosY() < 920)
                 this->zelda->setPosY(10);
-            break;
-        }
-        if (this->zelda->getPosY() != this->cameraView->getPosY()) {
-            if (this->zelda->getPosY() > 920)
-                this->zelda->setPosY(10);
-            break;
         }
         break;
     }
 
     case Qt::Key_Up:
     {
-        if (this->zelda->getPosY() <= (this->cameraView->getPosY()+250)){
+        if (this->zelda->getPosY() == this->cameraView->getPosY() + 250){
             if (this->cameraView->getPosY() > -70)
                 this->cameraView->setPosY(-10);
+            this->zelda->setPosY(-10);
+
+        } else {
             if (this->zelda->getPosY() > 50)
                 this->zelda->setPosY(-10);
-        }
-        if (this->zelda->getPosY() != (this->cameraView->getPosY())) {
-            if (this->zelda->getPosY() > 50)
-                this->zelda->setPosY(-10);
-            break;
         }
         break;
     }
