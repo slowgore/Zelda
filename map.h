@@ -23,6 +23,7 @@ private:
     QGraphicsScene *mapScene;
     Camera *cameraView;
     Niveaux *niveaux;
+    Joueur *zelda;
 
 public:
     Map();

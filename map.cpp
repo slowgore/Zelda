@@ -4,6 +4,7 @@ Map::Map()
 {
     this->mapScene = new QGraphicsScene();
     this->cameraView = new Camera();
+    this->zelda = new Joueur();
     this->niveaux = new Niveaux();
     this->setFixedSize(500, 500);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -93,11 +94,16 @@ void Map::intinialisationScene()
             }
             QPixmap image;
             image = QPixmap(im).scaled(50,50);
-            QGraphicsPixmapItem *pGraphicsPixmapItem = new QGraphicsPixmapItem(image);
-            pGraphicsPixmapItem->setPixmap(image);
-            pGraphicsPixmapItem->setPos(j*50,i*50);
-            pGraphicsPixmapItem->setZValue(z); // on affecte au fond baige la valeur z=0
-            this->mapScene->addItem(pGraphicsPixmapItem);
+            QGraphicsPixmapItem *fond = new QGraphicsPixmapItem(image);
+            QGraphicsPixmapItem *perso = new QGraphicsPixmapItem(this->zelda->getTile());
+            fond->setPixmap(image);
+            perso->setPixmap(this->zelda->getTile());
+            fond->setPos(j*50,i*50);
+            perso->setPos(this->zelda->getPosX(), this->zelda->getPosY());
+            fond->setZValue(z); // on affecte au fond baige la valeur z=0
+            perso->setZValue(1);
+            this->mapScene->addItem(fond);
+            this->mapScene->addItem(perso);
             //this->view->afficherPersonnage(this->getModel()->getZelda());
         }
     }
