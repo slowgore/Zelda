@@ -6,12 +6,10 @@ Game::Game()
     this->timer =  new QTimer(this);
     timer->connect(timer, SIGNAL(timeout()), this, SLOT(showScene()));
     timer->start(20);
-    //this->model = model;
 }
 
 void Game::start(){
     showScene();
-    //this->view->afficherPersonnage(this->getModel()->getZelda());
     //this->view->affichageMenuEnHaut();
     this->view->show();
 }

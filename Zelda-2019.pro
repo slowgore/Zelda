@@ -30,7 +30,6 @@ SOURCES += \
         game.cpp \
     menu.cpp \
     map.cpp \
-    model.cpp \
     personnage.cpp \
     joueur.cpp \
     camera.cpp \
@@ -40,7 +39,6 @@ HEADERS += \
         game.h \
     menu.h \
     map.h \
-    model.h \
     personnage.h \
     joueur.h \
     camera.h \

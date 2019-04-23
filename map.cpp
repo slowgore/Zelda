@@ -98,6 +98,7 @@ void Map::intinialisationScene()
             pGraphicsPixmapItem->setPos(j*50,i*50);
             pGraphicsPixmapItem->setZValue(z); // on affecte au fond baige la valeur z=0
             this->mapScene->addItem(pGraphicsPixmapItem);
+            //this->view->afficherPersonnage(this->getModel()->getZelda());
         }
     }
 
@@ -175,15 +176,5 @@ QGraphicsScene* Map::getMapScene()
 Camera* Map::getCameraView()
 {
     return cameraView;
-}
-
-Model* Map::getModel() const
-{
-    return model;
-}
-
-void Map::setModel(Model *value)
-{
-    model = value;
 }
 
