@@ -1,9 +1,18 @@
 #include "personnage.h"
+#include <QtGui>
 
-Personnage::Personnage()
+Personnage::Personnage(QGraphicsItem *parent):QGraphicsItem (parent)
 {
     this->posX=250;
     this->posY=250;
+}
+
+QRectF Personnage::boundingRect() const {
+    return QRectF(0,0,30,30);
+}
+
+void Personnage::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
+    painter->drawPixmap(200,200,30,30,QPixmap(":/images/images/zelda.png"));
 }
 
 void Personnage::setPosX(int i)

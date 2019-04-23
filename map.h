@@ -17,7 +17,7 @@ class Map : public QGraphicsView
 {
 private:
 //    Game *controller;
-    QGraphicsScene * scene;
+    QGraphicsView *view;
     //QMediaPlayer * musiqueNiv;
     QSound * musiqueNiv;
     QGraphicsScene *mapScene;
@@ -31,6 +31,7 @@ public:
     void reset();
     void keyPressEvent(QKeyEvent *event);
     void intinialisationScene();
+    void update();
     void affichageMenuEnHaut();
     void afficherPersonnage(Joueur *joueur);
     QGraphicsScene *getMapScene();

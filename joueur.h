@@ -8,11 +8,12 @@
 class Joueur : public Personnage
 {
 private:
-    QPixmap tile;
+    QGraphicsPixmapItem *tile;
 
 public:
     Joueur();
-    QPixmap getTile();
+    ~Joueur();
+    QGraphicsPixmapItem* getTile();
 };
 
 #endif // JOUEUR_H

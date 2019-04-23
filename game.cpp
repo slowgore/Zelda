@@ -3,21 +3,20 @@
 Game::Game()
 {
     this->view = new Map();
+    this->view->intinialisationScene();
     this->timer =  new QTimer(this);
     timer->connect(timer, SIGNAL(timeout()), this, SLOT(showScene()));
-    timer->start(20);
+    timer->start();
 }
 
 void Game::start(){
     showScene();
-    //this->view->affichageMenuEnHaut();
     this->view->show();
 }
 
 void Game::showScene()
 {
-    this->view->getMapScene()->clear();
-    this->view->intinialisationScene();
+    this->view->update();
 }
 
 //void Game::onKeyPress(string key)

@@ -95,21 +95,21 @@ void Map::intinialisationScene()
             QPixmap image;
             image = QPixmap(im).scaled(50,50);
             QGraphicsPixmapItem *fond = new QGraphicsPixmapItem(image);
-            QGraphicsPixmapItem *perso = new QGraphicsPixmapItem(this->zelda->getTile());
             fond->setPixmap(image);
-            perso->setPixmap(this->zelda->getTile());
             fond->setPos(j*50,i*50);
-            perso->setPos((this->zelda->getPosX()), (this->zelda->getPosY()));
             fond->setZValue(z); // on affecte au fond baige la valeur z=0
-            perso->setZValue(1);
             this->mapScene->addItem(fond);
-            this->mapScene->addItem(perso);
-            //this->view->afficherPersonnage(this->getModel()->getZelda());
 
         }
     }
-
+    this->zelda->getTile()->setPos((this->zelda->getPosX()), (this->zelda->getPosY()));
+    this->zelda->getTile()->setZValue(5);
+    this->mapScene->addItem(this->zelda->getTile());
     setScene(mapScene);
+}
+
+void Map::update(){
+    mapScene->setSceneRect(cameraView->getPosX(), cameraView->getPosY(), 500, 500);
 }
 
 void Map::keyPressEvent(QKeyEvent *event)
@@ -122,10 +122,14 @@ void Map::keyPressEvent(QKeyEvent *event)
         if (this->zelda->getPosX() == this->cameraView->getPosX() + 250) {
             if (this->cameraView->getPosX() < 1000)
                 this->cameraView->setPosX(10);
+            this->zelda->getTile()->setX(this->zelda->getPosX() + 10);
             this->zelda->setPosX(10);
         } else {
             if(this->zelda->getPosX() < 1430)
+            {
+                this->zelda->getTile()->setX(this->zelda->getPosX() + 10);
                 this->zelda->setPosX(10);
+            }
         }
 //        if (this->zelda->getPosX() != this->cameraView->getPosX() ) {
 //            if(this->zelda->getPosX() < 1430)
@@ -140,10 +144,14 @@ void Map::keyPressEvent(QKeyEvent *event)
         if(this->zelda->getPosX() == this->cameraView->getPosX() + 250){
             if (this->cameraView->getPosX() > 0)
                 this->cameraView->setPosX(-10);
+            this->zelda->getTile()->setX(this->zelda->getPosX() - 10);
             this->zelda->setPosX(-10);
         } else {
             if (this->zelda->getPosX() > 50)
+            {
+                this->zelda->getTile()->setX(this->zelda->getPosX() - 10);
                 this->zelda->setPosX(-10);
+            }
         }
 
         break;
@@ -154,10 +162,14 @@ void Map::keyPressEvent(QKeyEvent *event)
         if (this->zelda->getPosY() == this->cameraView->getPosY() + 250) {
             if (this->cameraView->getPosY() < 500)
                 this->cameraView->setPosY(10);
+            this->zelda->getTile()->setY(this->zelda->getPosY() + 10);
             this->zelda->setPosY(10);
         } else {
             if (this->zelda->getPosY() < 920)
+            {
+                this->zelda->getTile()->setY(this->zelda->getPosY() + 10);
                 this->zelda->setPosY(10);
+            }
         }
         break;
     }
@@ -167,11 +179,15 @@ void Map::keyPressEvent(QKeyEvent *event)
         if (this->zelda->getPosY() == this->cameraView->getPosY() + 250){
             if (this->cameraView->getPosY() > -70)
                 this->cameraView->setPosY(-10);
+            this->zelda->getTile()->setY(this->zelda->getPosY() - 10);
             this->zelda->setPosY(-10);
 
         } else {
             if (this->zelda->getPosY() > 50)
+            {
+                this->zelda->getTile()->setY(this->zelda->getPosY() - 10);
                 this->zelda->setPosY(-10);
+            }
         }
         break;
     }

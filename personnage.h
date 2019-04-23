@@ -2,19 +2,23 @@
 #define PERSONNAGE_H
 
 #include <vector>
-#include <QGraphicsPixmapItem>
+#include <QGraphicsItem>
 #include <QPixmap>
 
 using namespace std;
 
-class Personnage
+class Personnage : public QGraphicsItem
 {
 private:
     int posX;
     int posY;
 
+protected:
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    QRectF boundingRect() const;
+
 public:
-    Personnage();
+    Personnage(QGraphicsItem* parent = NULL);
     void setPosX(int i);
     void setPosY(int j);
     int getPosX();
