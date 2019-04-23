@@ -99,7 +99,7 @@ void Map::intinialisationScene()
             fond->setPixmap(image);
             perso->setPixmap(this->zelda->getTile());
             fond->setPos(j*50,i*50);
-            perso->setPos(this->zelda->getPosX(), this->zelda->getPosY());
+            perso->setPos((this->cameraView->getPosX()+this->zelda->getPosX()), (this->cameraView->getPosY()+this->zelda->getPosY()));
             fond->setZValue(z); // on affecte au fond baige la valeur z=0
             perso->setZValue(1);
             this->mapScene->addItem(fond);

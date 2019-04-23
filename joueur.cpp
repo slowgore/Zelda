@@ -2,8 +2,8 @@
 
 Joueur::Joueur():Personnage()
 {
-    this->setPosX(200);
-    this->setPosY(200);
+    this->setPosX(0);
+    this->setPosY(0);
     this->tile = QPixmap(":/images/images/zelda.png").scaled(30,30);
 }
 
