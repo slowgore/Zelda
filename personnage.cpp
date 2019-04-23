@@ -1,9 +1,9 @@
 #include "personnage.h"
 
-Personnage::Personnage(int x, int y)
+Personnage::Personnage()
 {
-    this->posX=x;
-    this->posY=y;
+    this->posX=200;
+    this->posY=200;
 }
 
 void Personnage::setPosX(int i)

@@ -14,7 +14,7 @@ private:
     int posY;
 
 public:
-    Personnage(int, int);
+    Personnage();
     void setPosX(int i);
     void setPosY(int j);
     int getPosX();

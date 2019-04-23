@@ -11,10 +11,10 @@ private:
     Joueur *zelda;
 
 public:
-    Model(int, int);
+    Model();
     Joueur *getZelda() const;
     void setZelda(Joueur *value);
-    void resetModel(int, int);
+    void resetModel();
 };
 
 #endif // MODEL_H

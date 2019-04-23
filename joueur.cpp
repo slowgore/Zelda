@@ -1,7 +1,9 @@
 #include "joueur.h"
 
-Joueur::Joueur(int x, int y):Personnage(x, y)
+Joueur::Joueur():Personnage()
 {
+    this->setPosX(200);
+    this->setPosY(200);
     this->tile = QPixmap("C:/Users/marti/OneDrive/Documents/GitHub/Zelda/images/zelda.png").scaled(30,30);
 }
 

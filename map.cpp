@@ -150,7 +150,7 @@ void Map::keyPressEvent(QKeyEvent *event)
 
 void Map::affichageMenuEnHaut()
 {
-    QGraphicsRectItem *rectangleDuHaut = new QGraphicsRectItem(cameraView->getPosX(), cameraView->getPosY(),100,100);
+    QGraphicsRectItem *rectangleDuHaut = new QGraphicsRectItem(cameraView->getPosX(), cameraView->getPosY(),500,70);
     rectangleDuHaut->setBrush(QBrush(Qt::black));
     rectangleDuHaut->setZValue(5);
     this->mapScene->addItem(rectangleDuHaut);
@@ -176,3 +176,4 @@ Camera* Map::getCameraView()
 {
     return cameraView;
 }
+

@@ -1,12 +1,12 @@
 #include "model.h"
 
-Model::Model(int x, int y)
+Model::Model()
 {
-    this->zelda = new Joueur(x, y);
+    this->zelda = new Joueur();
 }
 
-void Model::resetModel(int x, int y){
-    this->zelda = new Joueur(x, y);
+void Model::resetModel(){
+    this->zelda = new Joueur();
 }
 
 Joueur *Model::getZelda() const
