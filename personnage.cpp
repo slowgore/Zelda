@@ -38,3 +38,12 @@ int Personnage::getPosY()
     return this->posY;
 }
 
+void Personnage::setLifeStatue(int life)
+{
+    this->life=life;//si la vie passe en dessous de 0 on met à 0
+}
+
+int Personnage::getLifeStatue()
+{
+    return this->life;
+}

@@ -16,8 +16,8 @@
 class Map : public QGraphicsView
 {
 private:
-//    Game *controller;
     QGraphicsView *view;
+    QGraphicsRectItem *rectangleDuHaut;
     //QMediaPlayer * musiqueNiv;
     QSound * musiqueNiv;
     QGraphicsScene *mapScene;
