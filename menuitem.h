@@ -16,8 +16,8 @@ public:
     MenuItem(int vie);
     void affichageMenuEnHaut();
     QGraphicsRectItem* getRect();
-    QList<QGraphicsPixmapItem*> getHearts();
-    //~MenuItem();
+    QList<QGraphicsPixmapItem*> *getHearts();
+    ~MenuItem();
 };
 
 #endif // MENUITEM_H
