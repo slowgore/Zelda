@@ -12,6 +12,7 @@ class Personnage : public QGraphicsItem
 private:
     int posX;
     int posY;
+    int life;
 
 protected:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
@@ -23,6 +24,8 @@ public:
     void setPosY(int j);
     int getPosX();
     int getPosY();
+    int getLifeStatue();
+    void setLifeStatue(int life);
 };
 
 #endif // PERSONNAGE_H
