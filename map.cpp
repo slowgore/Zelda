@@ -6,6 +6,7 @@ Map::Map()
     this->cameraView = new Camera();
     this->zelda = new Joueur();
     this->niveaux = new Niveaux();
+    this->menu = new MenuItem(this->zelda->getLifeStatue());
     this->setFixedSize(500, 500);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -26,7 +27,7 @@ void Map::intinialisationScene()
 {
     //musiqueNiv = new QMediaPlayer();
     //musiqueNiv->setMedia(QUrl::fromLocalFile(":/musique/musique/niveau_principal.wav"));
-    //this->affichageMenuEnHaut();
+    this->affichageMenuEnHaut();
     //musiqueNiv->setVolume(30);
     mapScene->setSceneRect(cameraView->getPosX(), cameraView->getPosY(), 500, 500);
     QString im = "";
@@ -103,14 +104,13 @@ void Map::intinialisationScene()
     this->zelda->getTile()->setPos((this->zelda->getPosX()), (this->zelda->getPosY()));
     this->zelda->getTile()->setZValue(5);
     this->mapScene->addItem(this->zelda->getTile());
-    QList<QGraphicsItem*> item = mapScene->items();
     setScene(mapScene);
 }
 
 void Map::update(){
     mapScene->setSceneRect(cameraView->getPosX(), cameraView->getPosY(), 500, 500);
-    mapScene->items()[1]->setX(cameraView->getPosX());
-    mapScene->items()[1]->setY(cameraView->getPosY());
+    this->menu->getRect()->setX(cameraView->getPosX());
+    this->menu->getRect()->setY(cameraView->getPosY());
 }
 
 void Map::keyPressEvent(QKeyEvent *event)
@@ -254,28 +254,22 @@ void Map::keyPressEvent(QKeyEvent *event)
 
 void Map::affichageMenuEnHaut()
 {
-    rectangleDuHaut = new QGraphicsRectItem(cameraView->getPosX(), cameraView->getPosY(),500,70);
-    rectangleDuHaut->setBrush(QBrush(Qt::black));
-    rectangleDuHaut->setZValue(5);
+    this->menu->getRect()->setBrush(QBrush(Qt::black));
+    this->menu->getRect()->setZValue(5);
 
     int l=0;
     int c=0;
-    for (int i=0;i<this->zelda->getLifeStatue();i++){
-
-        if(this->zelda->getLifeStatue()<11){
-            QPixmap pix = QPixmap(":/images/images/zelda.png").scaled(20,20);
-            QGraphicsPixmapItem * heart = new QGraphicsPixmapItem(pix);
-            heart->setPos((this->cameraView->getPosX()+15*l),this->cameraView->getPosY()+1+15*c);
-            heart->setZValue(10);
-            this->mapScene->addItem(heart);
-        }
+    for (QGraphicsPixmapItem* heart : this->menu->getHearts()){
+        heart->setPos((this->cameraView->getPosX()+15*l),this->cameraView->getPosY()+1+15*c);
+        heart->setZValue(10);
+        this->mapScene->addItem(heart);
         l++;
         if(l==5){
             c=1;
             l=0;
         }
     }
-    this->mapScene->addItem(rectangleDuHaut);
+    this->mapScene->addItem(this->menu->getRect());
 }
 
 void Map::background(){

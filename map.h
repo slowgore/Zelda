@@ -12,12 +12,13 @@
 #include "joueur.h"
 #include "camera.h"
 #include "niveaux.h"
+#include "menuitem.h"
 
 class Map : public QGraphicsView
 {
 private:
     QGraphicsView *view;
-    QGraphicsRectItem *rectangleDuHaut;
+    MenuItem *menu;
     //QMediaPlayer * musiqueNiv;
     QSound * musiqueNiv;
     QGraphicsScene *mapScene;
