@@ -111,6 +111,40 @@ void Map::update(){
     mapScene->setSceneRect(cameraView->getPosX(), cameraView->getPosY(), 500, 500);
     this->menu->getRect()->setX(cameraView->getPosX());
     this->menu->getRect()->setY(cameraView->getPosY());
+    int a = 1;
+    while(a==1){
+        int l=0;
+        int c=0;
+        int nbrHeartLife = this->zelda->getLifeStatue();
+        int nbrHeartMenu = this->menu->getHearts().size();
+
+        if(nbrHeartLife <= nbrHeartMenu){
+            int nbr = nbrHeartMenu - nbrHeartLife;
+            for(int i = 0; i<nbr ;i++){
+                this->menu->getHearts().removeLast();
+            }
+        }
+        if(nbrHeartLife > nbrHeartMenu) {
+            int nbr = nbrHeartLife - nbrHeartMenu;
+            for(int i=0; i<nbr;i++){
+                QPixmap pix = QPixmap(":/images/images/zelda.png").scaled(15,15);
+                QGraphicsPixmapItem * io = new QGraphicsPixmapItem(pix);
+                this->menu->getHearts().append(io);
+            }
+
+        }
+        for(int i=0; i<nbrHeartMenu; i++){
+             if(this->zelda->getLifeStatue()<11 & this->zelda->getLifeStatue()>0){
+                 this->menu->getHearts().at(i)->setPos((this->cameraView->getPosX()+15*l),this->cameraView->getPosY()+1+15*c);
+             }
+                 l++;
+                 if(l==5){
+                 c=1;
+                 l=0;
+                 }
+        }
+        a=0;
+    }
 }
 
 void Map::keyPressEvent(QKeyEvent *event)
@@ -122,6 +156,7 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Right:
     {
+        this->zelda->setLifeStatue(this->zelda->getLifeStatue()-1); //test pour l'affichage de la vie, a enlever plus tard
         this->zelda->getTile()->setX(this->zelda->getPosX() + 10);
         item = mapScene->collidingItems(this->zelda->getTile());
         for (QGraphicsItem *a : item)
@@ -152,6 +187,7 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Left:
     {
+        this->zelda->setLifeStatue(this->zelda->getLifeStatue()+1); //pour l'affichage de la vie a enlever plus tard
         this->zelda->getTile()->setX(this->zelda->getPosX() - 10);
         item = mapScene->collidingItems(this->zelda->getTile());
         for (QGraphicsItem *a : item)

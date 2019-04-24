@@ -16,3 +16,4 @@ QGraphicsRectItem* MenuItem::getRect(){
 QList<QGraphicsPixmapItem*> MenuItem::getHearts(){
     return this->hearts;
 }
+

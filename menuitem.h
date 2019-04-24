@@ -11,6 +11,7 @@ private:
     QGraphicsRectItem *rectangleDuHaut;
     QList<QGraphicsPixmapItem*> hearts;
 
+
 public:
     MenuItem(int vie);
     void affichageMenuEnHaut();
