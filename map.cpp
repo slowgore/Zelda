@@ -104,6 +104,10 @@ void Map::intinialisationScene()
     this->zelda->getTile()->setPos((this->zelda->getPosX()), (this->zelda->getPosY()));
     this->zelda->getTile()->setZValue(5);
     this->mapScene->addItem(this->zelda->getTile());
+
+    //this->monstres->setPos((this->monstres->getPosXinitiale()),(this->monstres->getPosYinitiale()));
+    //this->mapScene->addItem(monstres);
+
     setScene(mapScene);
 }
 
@@ -120,6 +124,10 @@ void Map::update(){
     if(nbrHeartLife < nbrHeartMenu){
         this->mapScene->removeItem(menu->getHearts()->back());
         this->menu->getHearts()->removeLast();
+        if(nbrHeartLife == 0){
+            cout << "game over "<<endl;
+            this->close();
+        }
     }
 
     if(nbrHeartLife > nbrHeartMenu) {
@@ -183,7 +191,6 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Left:
     {
-        //this->zelda->setLifeStatue(this->zelda->getLifeStatue()+1); //pour l'affichage de la vie a enlever plus tard
         this->zelda->getTile()->setX(this->zelda->getPosX() - 10);
         item = mapScene->collidingItems(this->zelda->getTile());
         for (QGraphicsItem *a : item)
@@ -311,6 +318,13 @@ void Map::afficherPersonnage(Joueur *joueur)
 {
     QGraphicsPixmapItem *apparencePersonnage =  new QGraphicsPixmapItem(joueur->getTile());
     apparencePersonnage->setPos(joueur->getPosX(),joueur->getPosY());
+    apparencePersonnage->setZValue(100);//pour etre sur
+    this->mapScene->addItem(apparencePersonnage);
+}
+
+void Map::affichageMonstre(Hostile *hostil){
+    QGraphicsPixmapItem *apparencePersonnage =  new QGraphicsPixmapItem(hostil->getTile());
+    apparencePersonnage->setPos(hostil->getPosX(),hostil->getPosY());
     apparencePersonnage->setZValue(100);//pour etre sur
     this->mapScene->addItem(apparencePersonnage);
 }

@@ -13,6 +13,7 @@
 #include "camera.h"
 #include "niveaux.h"
 #include "menuitem.h"
+#include "hostile.h"
 
 class Map : public QGraphicsView
 {
@@ -25,6 +26,7 @@ private:
     Camera *cameraView;
     Niveaux *niveaux;
     Joueur *zelda;
+    Hostile *monstres;
 
 public:
     Map();
@@ -34,6 +36,7 @@ public:
     void intinialisationScene();
     void update();
     void affichageMenuEnHaut();
+    void affichageMonstre(Hostile *hostil);
     void afficherPersonnage(Joueur *joueur);
     QGraphicsScene *getMapScene();
     Camera *getCameraView();
