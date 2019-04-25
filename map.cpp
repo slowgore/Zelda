@@ -104,10 +104,10 @@ void Map::intinialisationScene()
             }
             if (niveaux->objetCarte1[i][j] != 0) {
                 QPixmap image;
-                image = QPixmap(im).scaled(200,200);
+                image = QPixmap(im).scaled(50,50);
                 QGraphicsPixmapItem *fond = new QGraphicsPixmapItem(image);
                 fond->setPixmap(image);
-                fond->setPos(j*70,i*70);
+                fond->setPos(j*50,i*50);
                 fond->setZValue(2.0); // on affecte au fond baige la valeur z=0
                 this->mapScene->addItem(fond);
             }
