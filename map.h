@@ -20,6 +20,7 @@ class Map : public QGraphicsView
 private:
     QGraphicsView *view;
     MenuItem *menu;
+    QGraphicsPixmapItem* old;
     //QMediaPlayer * musiqueNiv;
     QSound * musiqueNiv;
     QGraphicsScene *mapScene;

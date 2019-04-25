@@ -31,7 +31,6 @@ void Map::intinialisationScene()
     //musiqueNiv->setVolume(30);
     mapScene->setSceneRect(cameraView->getPosX(), cameraView->getPosY(), 500, 500);
     QString im = "";
-    float z = 0.0;
 
     for (int i = 0; i < 20; i++)
     {
@@ -83,10 +82,6 @@ void Map::intinialisationScene()
             else if (niveaux->carte1[i][j] == 20) {
                 im = ":/images/images/roche.png";
             }
-            else if (niveaux->carte1[i][j] == 30) {
-                im = ":/images/images/arbre.png";
-                z = 2.0;
-            }
             else
             {
                 im = ":/images/images/grass.png";
@@ -96,14 +91,37 @@ void Map::intinialisationScene()
             QGraphicsPixmapItem *fond = new QGraphicsPixmapItem(image);
             fond->setPixmap(image);
             fond->setPos(j*50,i*50);
-            fond->setZValue(z); // on affecte au fond baige la valeur z=0
-            z = 0.0;
+            fond->setZValue(0.0); // on affecte au fond baige la valeur z=0
             this->mapScene->addItem(fond);
         }
     }
+
+    for (int i = 0; i < 20; i++) {
+        for (int j = 0; j < 30; j++) {
+
+            if (niveaux->objetCarte1[i][j] == 30) {
+                im = ":/images/images/arbre.png";
+            }
+            if (niveaux->objetCarte1[i][j] != 0) {
+                QPixmap image;
+                image = QPixmap(im).scaled(200,200);
+                QGraphicsPixmapItem *fond = new QGraphicsPixmapItem(image);
+                fond->setPixmap(image);
+                fond->setPos(j*70,i*70);
+                fond->setZValue(2.0); // on affecte au fond baige la valeur z=0
+                this->mapScene->addItem(fond);
+            }
+        }
+    }
+
+    this->old = new QGraphicsPixmapItem(QPixmap(":/images/images/roche.png").scaled(30,30));
+    this->old->setPos((this->zelda->getPosX()), (this->zelda->getPosY()));
+    this->old->setZValue(-1.0);
     this->zelda->getTile()->setPos((this->zelda->getPosX()), (this->zelda->getPosY()));
     this->zelda->getTile()->setZValue(5);
     this->mapScene->addItem(this->zelda->getTile());
+    this->mapScene->addItem(this->old);
+    setScene(mapScene);
 
     //this->monstres->setPos((this->monstres->getPosXinitiale()),(this->monstres->getPosYinitiale()));
     //this->mapScene->addItem(monstres);
@@ -161,8 +179,8 @@ void Map::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Right:
     {
         //this->zelda->setLifeStatue(this->zelda->getLifeStatue()-1); //test pour l'affichage de la vie, a enlever plus tard
-        this->zelda->getTile()->setX(this->zelda->getPosX() + 10);
-        item = mapScene->collidingItems(this->zelda->getTile());
+        this->old->setX(this->zelda->getPosX() + 10);
+        item = mapScene->collidingItems(this->old);
         for (QGraphicsItem *a : item)
         {
             if (a->zValue() == 2.0)
@@ -171,9 +189,12 @@ void Map::keyPressEvent(QKeyEvent *event)
 
         if (this->zelda->getPosX() == this->cameraView->getPosX() + 250) {
             if (!coli) {
+                this->zelda->getTile()->setX(this->zelda->getPosX() + 10);
                 this->zelda->setPosX(10);
                 if (this->cameraView->getPosX() < 1000)
                     this->cameraView->setPosX(10);
+            } else {
+                this->old->setX(this->zelda->getPosX() - 10);
             }
 
         } else {
@@ -181,7 +202,10 @@ void Map::keyPressEvent(QKeyEvent *event)
             {
                 if (!coli)
                 {
+                    this->zelda->getTile()->setX(this->zelda->getPosX() + 10);
                     this->zelda->setPosX(10);
+                } else {
+                    this->old->setX(this->zelda->getPosX() - 10);
                 }
             }
         }
@@ -191,8 +215,9 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Left:
     {
-        this->zelda->getTile()->setX(this->zelda->getPosX() - 10);
-        item = mapScene->collidingItems(this->zelda->getTile());
+        //this->zelda->setLifeStatue(this->zelda->getLifeStatue()+1); //pour l'affichage de la vie a enlever plus tard
+        this->old->setX(this->zelda->getPosX() - 10);
+        item = mapScene->collidingItems(this->old);
         for (QGraphicsItem *a : item)
         {
             if (a->zValue() == 2.0)
@@ -202,9 +227,12 @@ void Map::keyPressEvent(QKeyEvent *event)
         if(this->zelda->getPosX() == this->cameraView->getPosX() + 250){
             if (!coli)
             {
+                this->zelda->getTile()->setX(this->zelda->getPosX() - 10);
                 this->zelda->setPosX(-10);
                 if (this->cameraView->getPosX() > 0)
                     this->cameraView->setPosX(-10);
+            } else {
+                this->old->setX(this->zelda->getPosX() + 10);
             }
 
         } else {
@@ -212,7 +240,10 @@ void Map::keyPressEvent(QKeyEvent *event)
             {
                 if (!coli)
                 {
+                    this->zelda->getTile()->setX(this->zelda->getPosX() - 10);
                     this->zelda->setPosX(-10);
+                } else {
+                    this->old->setX(this->zelda->getPosX() + 10);
                 }
             }
         }
@@ -222,8 +253,8 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Down:
     {
-        this->zelda->getTile()->setY(this->zelda->getPosY() + 10);
-        item = mapScene->collidingItems(this->zelda->getTile());
+        this->old->setY(this->zelda->getPosY() + 10);
+        item = mapScene->collidingItems(this->old);
         for (QGraphicsItem *a : item)
         {
             if (a->zValue() == 2.0)
@@ -233,9 +264,12 @@ void Map::keyPressEvent(QKeyEvent *event)
         if (this->zelda->getPosY() == this->cameraView->getPosY() + 250) {
             if (!coli)
             {
+                this->zelda->getTile()->setY(this->zelda->getPosY() + 10);
                 this->zelda->setPosY(10);
                 if (this->cameraView->getPosY() < 500)
                     this->cameraView->setPosY(10);
+            } else {
+                this->old->setY(this->zelda->getPosY() - 10);
             }
 
         } else {
@@ -243,7 +277,10 @@ void Map::keyPressEvent(QKeyEvent *event)
             {
                 if (!coli)
                 {
+                    this->zelda->getTile()->setY(this->zelda->getPosY() + 10);
                     this->zelda->setPosY(10);
+                } else {
+                    this->old->setY(this->zelda->getPosY() - 10);
                 }
 
             }
@@ -254,8 +291,8 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Up:
     {
-        this->zelda->getTile()->setY(this->zelda->getPosY() - 10);
-        item = mapScene->collidingItems(this->zelda->getTile());
+        this->old->setY(this->zelda->getPosY() - 10);
+        item = mapScene->collidingItems(this->old);
         for (QGraphicsItem *a : item)
         {
             if (a->zValue() == 2.0)
@@ -265,9 +302,12 @@ void Map::keyPressEvent(QKeyEvent *event)
         if (this->zelda->getPosY() == this->cameraView->getPosY() + 250){
             if (!coli)
             {
+                this->zelda->getTile()->setY(this->zelda->getPosY() - 10);
+                this->zelda->setPosY(-10);
                 if (this->cameraView->getPosY() > -70)
                     this->cameraView->setPosY(-10);
-                this->zelda->setPosY(-10);
+            } else {
+                this->old->setY(this->zelda->getPosY() + 10);
             }
 
         } else {
@@ -275,7 +315,10 @@ void Map::keyPressEvent(QKeyEvent *event)
             {
                 if (!coli)
                 {
+                    this->zelda->getTile()->setY(this->zelda->getPosY() - 10);
                     this->zelda->setPosY(-10);
+                } else {
+                    this->old->setY(this->zelda->getPosY() + 10);
                 }
 
             }
