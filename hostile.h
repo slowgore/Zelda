@@ -11,8 +11,8 @@ class Hostile : public Personnage
 {
 public:
     Hostile(int posX, int posY);
-    QPixmap getTile(); // renvoie un QPixmap
-    void setTilePosition(); // Donne la position de la tile
+    QGraphicsPixmapItem* getTile();
+    void setTilePosition();
 
     int getPosXinitiale() const;
     void setPosXinitiale(int value);
@@ -21,7 +21,7 @@ public:
     void setPosYinitiale(int value);
 
 private:
-    QPixmap tile;
+    QGraphicsPixmapItem *tile;
     int posXinitiale;
     int posYinitiale;
 };

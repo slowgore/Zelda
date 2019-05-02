@@ -39,6 +39,7 @@ public:
     void affichageMenuEnHaut();
     void affichageMonstre(Hostile *hostil);
     void afficherPersonnage(Joueur *joueur);
+    void updateMenuHaut();
     QGraphicsScene *getMapScene();
     Camera *getCameraView();
 };

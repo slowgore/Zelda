@@ -8,12 +8,12 @@ Hostile::Hostile(int posX, int posY)
     this->posXinitiale =qrand() % ((1000 + 1) - 250) + 250;
     this->posYinitiale = qrand() % ((700 + 1) - 250) + 250;
 
-    this->tile=QPixmap(":/images/images/zelda.png").scaled(30,30);
+    this->tile = new QGraphicsPixmapItem(QPixmap(":/images/images/zelda.png").scaled(30,30));
 }
 
 
 
-QPixmap Hostile::getTile()
+QGraphicsPixmapItem* Hostile::getTile()
 {
     return this->tile;
 }

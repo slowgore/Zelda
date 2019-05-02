@@ -121,52 +121,16 @@ void Map::intinialisationScene()
     this->zelda->getTile()->setZValue(5);
     this->mapScene->addItem(this->zelda->getTile());
     this->mapScene->addItem(this->old);
+    //affichageMonstre(monstres);
     setScene(mapScene);
 
-    //this->monstres->setPos((this->monstres->getPosXinitiale()),(this->monstres->getPosYinitiale()));
-    //this->mapScene->addItem(monstres);
-
-    setScene(mapScene);
 }
 
 void Map::update(){
     mapScene->setSceneRect(cameraView->getPosX(), cameraView->getPosY(), 500, 500);
     this->menu->getRect()->setX(cameraView->getPosX());
     this->menu->getRect()->setY(cameraView->getPosY());
-
-    int l=0;
-    int c=0;
-    int nbrHeartLife = this->zelda->getLifeStatue();
-    int nbrHeartMenu = this->menu->getHearts()->size();
-
-    if(nbrHeartLife < nbrHeartMenu){
-        this->mapScene->removeItem(menu->getHearts()->back());
-        this->menu->getHearts()->removeLast();
-        if(nbrHeartLife == 0){
-            cout << "game over "<<endl;
-            this->close();
-        }
-    }
-
-    if(nbrHeartLife > nbrHeartMenu) {
-        QPixmap pix = QPixmap(":/images/images/zelda.png").scaled(20,20);
-        QGraphicsPixmapItem * io = new QGraphicsPixmapItem(pix);
-        this->menu->getHearts()->append(io);
-        this->mapScene->addItem(menu->getHearts()->back());
-    }
-
-    for(QGraphicsPixmapItem *heart : *this->menu->getHearts()){
-         if(this->zelda->getLifeStatue()<11 && this->zelda->getLifeStatue()>0){
-             heart->setPos((this->cameraView->getPosX()+15*l),this->cameraView->getPosY()+1+15*c);
-             heart->setZValue(10);
-         }
-         l++;
-
-         if(l==5){
-             c=1;
-             l=0;
-         }
-    }
+    updateMenuHaut();
 }
 
 void Map::keyPressEvent(QKeyEvent *event)
@@ -215,7 +179,7 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Left:
     {
-        //this->zelda->setLifeStatue(this->zelda->getLifeStatue()+1); //pour l'affichage de la vie a enlever plus tard
+        this->zelda->setLifeStatue(this->zelda->getLifeStatue()+1); //pour l'affichage de la vie a enlever plus tard
         this->old->setX(this->zelda->getPosX() - 10);
         item = mapScene->collidingItems(this->old);
         for (QGraphicsItem *a : item)
@@ -352,6 +316,42 @@ void Map::affichageMenuEnHaut()
         }
     }
     this->mapScene->addItem(this->menu->getRect());
+}
+
+void Map::updateMenuHaut(){
+    int l=0;
+    int c=0;
+    int nbrHeartLife = this->zelda->getLifeStatue();
+    int nbrHeartMenu = this->menu->getHearts()->size();
+
+    if(nbrHeartLife < nbrHeartMenu){
+        this->mapScene->removeItem(menu->getHearts()->back());
+        this->menu->getHearts()->removeLast();
+        if(nbrHeartLife == 0){
+            cout << "game over "<<endl;
+            this->close();
+        }
+    }
+
+    if(nbrHeartLife > nbrHeartMenu) {
+        QPixmap pix = QPixmap(":/images/images/zelda.png").scaled(20,20);
+        QGraphicsPixmapItem * io = new QGraphicsPixmapItem(pix);
+        this->menu->getHearts()->append(io);
+        this->mapScene->addItem(menu->getHearts()->back());
+    }
+
+    for(QGraphicsPixmapItem *heart : *this->menu->getHearts()){
+         if(this->zelda->getLifeStatue()<16 && this->zelda->getLifeStatue()>0){
+             heart->setPos((this->cameraView->getPosX()+15*l),this->cameraView->getPosY()+1+15*c);
+             heart->setZValue(10);
+         }
+         l++;
+
+         if(l==5){
+             c++;
+             l=0;
+         }
+    }
 }
 
 void Map::background(){

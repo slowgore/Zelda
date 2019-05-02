@@ -1,5 +1,4 @@
 #include <QApplication>
-#include "game.h"
 #include "menu.h"
 
 int main(int argc, char *argv[])
