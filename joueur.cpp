@@ -12,7 +12,7 @@ Joueur::~Joueur(){
 
 }
 
-QGraphicsPixmapItem* Joueur::getTile()
+QGraphicsPixmapItem* Joueur::getTile() const
 {
     return this->tile;
 }

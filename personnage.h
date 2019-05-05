@@ -22,8 +22,8 @@ public:
     Personnage(QGraphicsItem* parent = NULL);
     void setPosX(int i);
     void setPosY(int j);
-    int getPosX();
-    int getPosY();
+    int getPosX() const;
+    int getPosY() const;
     int getLifeStatue();
     void setLifeStatue(int life);
 };

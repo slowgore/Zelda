@@ -13,7 +13,7 @@ private:
 public:
     Joueur();
     ~Joueur();
-    QGraphicsPixmapItem* getTile();
+    QGraphicsPixmapItem* getTile() const;
 };
 
 #endif // JOUEUR_H

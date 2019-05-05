@@ -28,12 +28,12 @@ void Personnage::setPosY(int j)
 
 }
 
-int Personnage::getPosX()
+int Personnage::getPosX() const
 {
     return this->posX;
 }
 
-int Personnage::getPosY()
+int Personnage::getPosY() const
 {
     return this->posY;
 }
