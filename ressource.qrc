@@ -25,5 +25,29 @@
         <file>images/reverse_top_corner_right_sand.png</file>
         <file>images/roche.png</file>
         <file>images/arbre.png</file>
+        <file>images/zelda_up/10.png</file>
+        <file>images/zelda_up/20.png</file>
+        <file>images/zelda_up/30.png</file>
+        <file>images/zelda_up/40.png</file>
+        <file>images/zelda_up/50.png</file>
+        <file>images/zelda_up/60.png</file>
+        <file>images/zelda_down/10.png</file>
+        <file>images/zelda_down/20.png</file>
+        <file>images/zelda_down/30.png</file>
+        <file>images/zelda_down/40.png</file>
+        <file>images/zelda_down/50.png</file>
+        <file>images/zelda_down/60.png</file>
+        <file>images/zelda_right/10.png</file>
+        <file>images/zelda_right/20.png</file>
+        <file>images/zelda_right/30.png</file>
+        <file>images/zelda_right/40.png</file>
+        <file>images/zelda_right/50.png</file>
+        <file>images/zelda_right/60.png</file>
+        <file>images/zelda_left/10.png</file>
+        <file>images/zelda_left/20.png</file>
+        <file>images/zelda_left/30.png</file>
+        <file>images/zelda_left/40.png</file>
+        <file>images/zelda_left/50.png</file>
+        <file>images/zelda_left/60.png</file>
     </qresource>
 </RCC>
