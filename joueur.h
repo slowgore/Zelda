@@ -15,6 +15,7 @@ public:
     Joueur();
     ~Joueur();
     QGraphicsPixmapItem* getTile() const;
+    void changePixmap(char a);
     int* getIm_link();
     void setTitle(QGraphicsPixmapItem *tile);
 };
