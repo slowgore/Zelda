@@ -20,10 +20,15 @@ public:
     int getPosYinitiale() const;
     void setPosYinitiale(int value);
 
+    void changePosFunc(int nb);
+    void changePixmap(char a);
+
 private:
     QGraphicsPixmapItem *tile;
     int posXinitiale;
     int posYinitiale;
+    QString directionMonstre;
+    int im_ennemi[4] = {2,1,1,1};
 };
 
 #endif // HOSTILE_H

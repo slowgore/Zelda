@@ -3,8 +3,8 @@
 
 Personnage::Personnage(QGraphicsItem *parent):QGraphicsItem (parent)
 {
-    this->posX=250;
-    this->posY=250;
+    this->posX=0;
+    this->posY=0;
 }
 
 QRectF Personnage::boundingRect() const {

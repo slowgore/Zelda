@@ -16,6 +16,7 @@ private:
     QGraphicsScene * Scene;
     Map * view;
     QTimer *timer;
+    QTimer *timerM;
     QAbstractScrollArea *scrool;
 
 public:
@@ -28,6 +29,7 @@ public:
 
 public slots:
     void showScene();
+    void updateMonster();
 };
 
 #endif // GAME_H

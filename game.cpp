@@ -7,6 +7,10 @@ Game::Game()
     this->timer =  new QTimer(this);
     timer->connect(timer, SIGNAL(timeout()), this, SLOT(showScene()));
     timer->start();
+
+    this->timerM =  new QTimer(this);
+    timerM->connect(timerM, SIGNAL(timeout()), this, SLOT(updateMonster()));
+    timerM->start(500);
 }
 
 void Game::start(){
@@ -17,6 +21,11 @@ void Game::start(){
 void Game::showScene()
 {
     this->view->update();
+}
+
+void Game::updateMonster()
+{
+    this->view->updateMonster();
 }
 
 //void Game::onKeyPress(string key)

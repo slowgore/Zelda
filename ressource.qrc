@@ -49,5 +49,13 @@
         <file>images/zelda_left/40.png</file>
         <file>images/zelda_left/50.png</file>
         <file>images/zelda_left/60.png</file>
+        <file>images/monstre_1/d_1.png</file>
+        <file>images/monstre_1/d_2.png</file>
+        <file>images/monstre_1/l_1.png</file>
+        <file>images/monstre_1/l_2.png</file>
+        <file>images/monstre_1/r_1.png</file>
+        <file>images/monstre_1/r_2.png</file>
+        <file>images/monstre_1/u_1.png</file>
+        <file>images/monstre_1/u_2.png</file>
     </qresource>
 </RCC>

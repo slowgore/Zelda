@@ -2,8 +2,8 @@
 
 Joueur::Joueur():Personnage()
 {
-    this->setPosX(0);
-    this->setPosY(0);
+    this->setPosX(250);
+    this->setPosY(250);
     this->tile = new QGraphicsPixmapItem(QPixmap(":/images/images/zelda_right/10.png").scaled(30,30));
     this->setLifeStatue(6);
 }
@@ -26,7 +26,7 @@ void Joueur::changePixmap(char a)
     if (a == 'R')
     {
         this->positionZelda = "R";
-        if (this->image_link[0] == 6)
+        if (this->image_link[0] == 7)
             this->image_link[0] = 1;
         QString im = ":/images/images/zelda_right/" + QString::number(this->image_link[0] * 10) +".png";
         this->image_link[0]++;
@@ -36,7 +36,7 @@ void Joueur::changePixmap(char a)
     if (a == 'L')
     {
         this->positionZelda = "L";
-        if (this->image_link[1] == 6)
+        if (this->image_link[1] == 7)
             this->image_link[1] = 1;
         QString im = ":/images/images/zelda_left/" + QString::number(this->image_link[1] * 10) +".png";
         this->image_link[1]++;
@@ -46,7 +46,7 @@ void Joueur::changePixmap(char a)
     if (a == 'D')
     {
         this->positionZelda = "D";
-        if (this->image_link[2] == 6)
+        if (this->image_link[2] == 7)
             this->image_link[2] = 1;
         QString im = ":/images/images/zelda_down/" + QString::number(this->image_link[2] * 10) +".png";
         this->image_link[2]++;
@@ -56,7 +56,7 @@ void Joueur::changePixmap(char a)
     if (a == 'U')
     {
         this->positionZelda = "U";
-        if (this->image_link[3] == 6)
+        if (this->image_link[3] == 7)
             this->image_link[3] = 1;
         QString im = ":/images/images/zelda_up/" + QString::number(this->image_link[3] * 10) +".png";
         this->image_link[3]++;

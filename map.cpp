@@ -7,6 +7,7 @@ Map::Map()
     this->zelda = new Joueur();
     this->niveaux = new Niveaux();
     this->menu = new MenuItem(this->zelda->getLifeStatue());
+    this->monstres = new Hostile(400,400);
     this->setFixedSize(500, 500);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -121,6 +122,8 @@ void Map::intinialisationScene()
     this->zelda->getTile()->setZValue(5);
     this->mapScene->addItem(this->zelda->getTile());
     this->mapScene->addItem(this->old);
+
+    this->mapScene->addItem(this->monstres->getTile());
     //affichageMonstre(monstres);
     setScene(mapScene);
 
@@ -339,6 +342,38 @@ void Map::affichageMenuEnHaut()
         }
     }
     this->mapScene->addItem(this->menu->getRect());
+}
+
+void Map::updateMonster()
+{
+    int direction = qrand()%8;
+    if (direction == 0 || direction == 1)
+    {
+        this->monstres->setPosX(10);
+        this->monstres->changePixmap('R');
+        this->monstres->getTile()->setX(this->monstres->getPosX());
+    }
+
+    if (direction == 2 || direction == 3)
+    {
+        this->monstres->setPosX(-10);
+        this->monstres->changePixmap('L');
+        this->monstres->getTile()->setX(this->monstres->getPosX());
+    }
+
+    if (direction == 4 || direction == 5)
+    {
+        this->monstres->setPosY(10);
+        this->monstres->changePixmap('D');
+        this->monstres->getTile()->setY(this->monstres->getPosY());
+    }
+
+    if (direction == 6 || direction == 7)
+    {
+        this->monstres->setPosY(-10);
+        this->monstres->changePixmap('U');
+        this->monstres->getTile()->setY(this->monstres->getPosY());
+    }
 }
 
 void Map::updateMenuHaut(){
