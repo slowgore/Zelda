@@ -189,7 +189,7 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Left:
     {
-        this->zelda->setLifeStatue(this->zelda->getLifeStatue()+1); //pour l'affichage de la vie a enlever plus tard
+        //this->zelda->setLifeStatue(this->zelda->getLifeStatue()+1); //pour l'affichage de la vie a enlever plus tard
         this->old->setX(this->zelda->getPosX() - 10);
         item = mapScene->collidingItems(this->old);
         for (QGraphicsItem *a : item)
