@@ -299,6 +299,21 @@ void Map::keyPressEvent(QKeyEvent *event)
         break;
     }
 
+    case Qt::Key_A:
+    {
+        {
+            QString position = this->zelda->positionZelda;
+            //this->zelda->number = 1;
+            // this->zelda->attack(position) //fonction pour check les collisions
+            for(int i = 0;i<6;i++){
+                this->zelda->setTileEpee(position); // affichage des images de l'epee
+                //ajout de delai pour l'annimation
+            }
+            break;
+        }
+    }
+
+
         default:
         {
             break;
