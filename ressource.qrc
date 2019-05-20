@@ -58,4 +58,34 @@
         <file>images/monstre_1/u_1.png</file>
         <file>images/monstre_1/u_2.png</file>
     </qresource>
+    <qresource prefix="/linkAttaque">
+        <file>AttaqueEpee/down0.png</file>
+        <file>AttaqueEpee/down1.png</file>
+        <file>AttaqueEpee/down2.png</file>
+        <file>AttaqueEpee/down3.png</file>
+        <file>AttaqueEpee/down4.png</file>
+        <file>AttaqueEpee/down5.png</file>
+        <file>AttaqueEpee/down6.png</file>
+        <file>AttaqueEpee/left0.png</file>
+        <file>AttaqueEpee/left1.png</file>
+        <file>AttaqueEpee/left2.png</file>
+        <file>AttaqueEpee/left3.png</file>
+        <file>AttaqueEpee/left4.png</file>
+        <file>AttaqueEpee/left5.png</file>
+        <file>AttaqueEpee/left6.png</file>
+        <file>AttaqueEpee/right0.png</file>
+        <file>AttaqueEpee/right1.png</file>
+        <file>AttaqueEpee/right2.png</file>
+        <file>AttaqueEpee/right3.png</file>
+        <file>AttaqueEpee/right4.png</file>
+        <file>AttaqueEpee/right5.png</file>
+        <file>AttaqueEpee/right6.png</file>
+        <file>AttaqueEpee/up0.png</file>
+        <file>AttaqueEpee/up1.png</file>
+        <file>AttaqueEpee/up2.png</file>
+        <file>AttaqueEpee/up3.png</file>
+        <file>AttaqueEpee/up4.png</file>
+        <file>AttaqueEpee/up5.png</file>
+        <file>AttaqueEpee/up6.png</file>
+    </qresource>
 </RCC>

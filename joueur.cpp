@@ -68,44 +68,35 @@ void Joueur::setTileEpee(QString position)
 {
     //position = positionZelda;
     QString s = QString::number(this->number);
-       if(position == "R"){ //si il y a une attaque epee a droite
-           if (this->image_Epee[0] == 6)
-               this->image_Epee[0] = 1;
-           QString im = ":/images/images/zelda_up/" + QString::number(this->image_Epee[0] * 10) +".png";
-           this->image_Epee[0]++;
-           this->tile->setPixmap(QPixmap(im).scaled(20,20));
+           if(position == "R"){ //si il y a une attaque epee a droite
+               if (this->image_Epee[0] == 7)
+                   this->image_Epee[0] = 0;
+               QString im = ":/linkAttaque/AttaqueEpee/right" + QString::number(this->image_Epee[0]) +".png";
+               this->image_Epee[0]++;
+               this->tile->setPixmap(QPixmap(im).scaled(30,30));
 
-           //this->tile = new QGraphicsPixmapItem(QPixmap (":/images/images/zelda.png").scaled(30,30));
-           //(this->number>=6)?this->number=1:this->number+=1;
-       }
-       if(position == "L"){ //si il y a une attaque epee a gauche
-           if (this->image_Epee[1] == 6)
-               this->image_Epee[1] = 1;
-           QString im = ":/images/images/zelda_up/" + QString::number(this->image_Epee[1] * 10) +".png";
-           this->image_Epee[1]++;
-           this->tile->setPixmap(QPixmap(im).scaled(20,20));
+           }
+           if(position == "L"){ //si il y a une attaque epee a gauche
+               if (this->image_Epee[1] == 7)
+                   this->image_Epee[1] = 0;
+               QString im = ":/linkAttaque/AttaqueEpee/left" + QString::number(this->image_Epee[1]) +".png";
+               this->image_Epee[1]++;
+               this->tile->setPixmap(QPixmap(im).scaled(30,30));
 
-           //this->tile = new QGraphicsPixmapItem(QPixmap (":/images/images/zelda.png").scaled(30,30));
-           //(this->number>=6)?this->number=1:this->number+=1;
-       }
-       if(position == "D"){ //si il y a une attaque epee en bas
-           if (this->image_Epee[2] == 6)
-               this->image_Epee[2] = 1;
-           QString im = ":/images/images/zelda_up/" + QString::number(this->image_Epee[2] * 10) +".png";
-           this->image_Epee[2]++;
-           this->tile->setPixmap(QPixmap(im).scaled(20,20));
+           }
+           if(position == "D"){ //si il y a une attaque epee en bas
+               if (this->image_Epee[2] == 7)
+                   this->image_Epee[2] = 0;
+               QString im = ":/linkAttaque/AttaqueEpee/down" + QString::number(this->image_Epee[2]) +".png";
+               this->image_Epee[2]++;
+               this->tile->setPixmap(QPixmap(im).scaled(30,30));
 
-           //this->tile = new QGraphicsPixmapItem(QPixmap (":/images/images/zelda.png").scaled(30,30));
-           //(this->number>=6)?this->number=1:this->number+=1;
-       }
-       if(position == "U"){ //si il y a une attaque epee en haut
-           if (this->image_Epee[3] == 6)
-               this->image_Epee[3] = 1;
-           QString im = ":/images/images/zelda_up/" + QString::number(this->image_Epee[3] * 10) +".png";
-           this->image_Epee[3]++;
-           this->tile->setPixmap(QPixmap(im).scaled(20,20));
-
-           //this->tile = new QGraphicsPixmapItem(QPixmap (":/images/images/zelda.png").scaled(30,30));
-           //(this->number>=6)?this->number=1:this->number+=1;
-       }
+           }
+           if(position == "U"){ //si il y a une attaque epee en haut
+               if (this->image_Epee[3] == 7)
+                   this->image_Epee[3] = 0;
+               QString im = ":/linkAttaque/AttaqueEpee/up" + QString::number(this->image_Epee[3]) +".png";
+               this->image_Epee[3]++;
+               this->tile->setPixmap(QPixmap(im).scaled(30,30));
+           }
 }

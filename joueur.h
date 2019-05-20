@@ -10,6 +10,7 @@ class Joueur : public Personnage
 {
 private:
     QGraphicsPixmapItem *tile;
+    QGraphicsPixmapItem *tileEpee;
     int image_link[4] = {2,1,1,1};
     int image_Epee[4] = {1,1,1,1};
 

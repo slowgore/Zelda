@@ -8,6 +8,7 @@
 #include <QtMultimedia/QMediaPlayer>
 #include <QSound>
 #include <QKeyEvent>
+#include <QTime>
 
 #include "joueur.h"
 #include "camera.h"
@@ -41,6 +42,7 @@ public:
     void afficherPersonnage(Joueur *joueur);
     void updateMenuHaut();
     void updateMonster();
+    void delay(int i);
     QGraphicsScene *getMapScene();
     Camera *getCameraView();
 };

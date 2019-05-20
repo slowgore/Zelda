@@ -308,9 +308,9 @@ void Map::keyPressEvent(QKeyEvent *event)
             QString position = this->zelda->positionZelda;
             //this->zelda->number = 1;
             // this->zelda->attack(position) //fonction pour check les collisions
-            for(int i = 0;i<6;i++){
+            for(int i = 0;i<7;i++){
                 this->zelda->setTileEpee(position); // affichage des images de l'epee
-                //ajout de delai pour l'annimation
+                delay(10);//ajout de delai pour l'annimation
             }
             break;
         }
@@ -322,6 +322,13 @@ void Map::keyPressEvent(QKeyEvent *event)
             break;
         }
     }
+}
+
+void Map::delay(int i)//attend un nombre de MS
+{
+    QTime delais= QTime::currentTime().addMSecs(i);
+    while( QTime::currentTime() < delais )
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
 
 void Map::affichageMenuEnHaut()
