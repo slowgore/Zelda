@@ -278,7 +278,7 @@ void Map::keyPressEvent(QKeyEvent *event)
                 this->zelda->changePixmap('U');
                 this->zelda->getTile()->setY(this->zelda->getPosY() - 10);
                 this->zelda->setPosY(-10);
-                if (this->cameraView->getPosY() > -70)
+                if (this->cameraView->getPosY() > 0)
                     this->cameraView->setPosY(-10);
             } else {
                 this->old->setY(this->zelda->getPosY() + 10);
@@ -306,9 +306,9 @@ void Map::keyPressEvent(QKeyEvent *event)
     {
         {
             QString position = this->zelda->positionZelda;
-            //this->zelda->number = 1;
             // this->zelda->attack(position) //fonction pour check les collisions
             for(int i = 0;i<7;i++){
+
                 this->zelda->setTileEpee(position); // affichage des images de l'epee
                 delay(10);//ajout de delai pour l'annimation
             }
@@ -333,19 +333,19 @@ void Map::delay(int i)//attend un nombre de MS
 
 void Map::affichageMenuEnHaut()
 {
-    this->menu->getRect()->setBrush(QBrush(Qt::black));
+    this->menu->getRect()->setBrush(QPixmap(":/images/images/menuCoeur.png").scaled(110,70));
     this->menu->getRect()->setZValue(5);
 
-    int l=0;
-    int c=0;
+    float l=1;
+    float c=1;
     for (QGraphicsPixmapItem* heart : *this->menu->getHearts()){
-        heart->setPos((this->cameraView->getPosX()+15*l),this->cameraView->getPosY()+1+15*c);
+        heart->setPos((this->cameraView->getPosX()+20*l),this->cameraView->getPosY()+15+1*c);
         heart->setZValue(10);
         this->mapScene->addItem(heart);
         l++;
-        if(l==5){
-            c=1;
-            l=0;
+        if(l==6){
+            c=2;
+            l=1;
         }
     }
     this->mapScene->addItem(this->menu->getRect());
@@ -384,8 +384,8 @@ void Map::updateMonster()
 }
 
 void Map::updateMenuHaut(){
-    int l=0;
-    int c=0;
+    int l=1;
+    int c=1;
     int nbrHeartLife = this->zelda->getLifeStatue();
     int nbrHeartMenu = this->menu->getHearts()->size();
 
@@ -399,7 +399,7 @@ void Map::updateMenuHaut(){
     }
 
     if(nbrHeartLife > nbrHeartMenu) {
-        QPixmap pix = QPixmap(":/images/images/zelda.png").scaled(20,20);
+        QPixmap pix = QPixmap(":/images/images/heart.png").scaled(20,15);
         QGraphicsPixmapItem * io = new QGraphicsPixmapItem(pix);
         this->menu->getHearts()->append(io);
         this->mapScene->addItem(menu->getHearts()->back());
@@ -412,9 +412,9 @@ void Map::updateMenuHaut(){
          }
          l++;
 
-         if(l==5){
+         if(l==6){
              c++;
-             l=0;
+             l=1;
          }
     }
 }

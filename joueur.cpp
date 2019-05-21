@@ -66,7 +66,6 @@ void Joueur::changePixmap(char a)
 
 void Joueur::setTileEpee(QString position)
 {
-    //position = positionZelda;
     QString s = QString::number(this->number);
            if(position == "R"){ //si il y a une attaque epee a droite
                if (this->image_Epee[0] == 7)
