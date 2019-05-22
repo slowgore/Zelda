@@ -362,6 +362,9 @@ void Map::keyPressEvent(QKeyEvent *event)
                     this->mapScene->addItem(this->fleche->getTileFleche());
                 }
             }
+            if (this->fleche->getCollison() != nullptr)
+                this->mapScene->removeItem(this->fleche->getCollison());
+
             this->mapScene->removeItem(this->fleche->getTileFleche());
             this->fleche->~Arc();
             attaque1 = 0;

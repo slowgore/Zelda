@@ -12,6 +12,7 @@ Arc::Arc(QString direction)
     if (direction == 'U')
         this->tile = new QGraphicsPixmapItem(QPixmap(":/images/images/fleches/up.png"));
     this->timer =  new QTimer(this);
+    this->monstre = nullptr;
     timer->connect(timer, SIGNAL(timeout()), this, SLOT(updatefleche()));
     timer->start(1);
 }
@@ -26,6 +27,11 @@ void Arc::setTileFleche(QGraphicsPixmapItem *value)
     tile = value;
 }
 
+QGraphicsItem* Arc::getCollison()
+{
+    return monstre;
+}
+
 void Arc::updatefleche()
 {
     if (direction == 'R')
@@ -36,7 +42,19 @@ void Arc::updatefleche()
         tile->setY(tile->y() + 1);
     if (direction == 'U')
         tile->setY(tile->y() - 1);
+
+    collision = this->tile->collidingItems();
+
+    for (QGraphicsItem *a:collision)
+    {
+        if (a->zValue() == 4.0)
+        {
+            a->setZValue(-1);
+            monstre = a;
+            this->tile->setZValue(-1);
+            timer->stop();
+        }
+    }
 }
 
-Arc::~Arc()
-{}
+Arc::~Arc(){}

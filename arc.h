@@ -14,12 +14,15 @@ public:
     Arc(QString direction);
     QGraphicsPixmapItem* getTileFleche();
     void setTileFleche(QGraphicsPixmapItem *value);
+    QGraphicsItem* getCollison();
     ~Arc();
 
 private:
     QGraphicsPixmapItem *tile;
     QTimer *timer;
     QString direction;
+    QList<QGraphicsItem*> collision;
+    QGraphicsItem *monstre;
 
 public slots:
     void updatefleche();
