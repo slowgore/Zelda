@@ -310,14 +310,14 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_A:
     {
-        {
-            QString position = this->zelda->positionZelda;
-            // this->zelda->attack(position) //fonction pour check les collisions
-            for(int i = 0;i<7;i++){
+        QString position = this->zelda->positionZelda;
+        // this->zelda->attack(position) //fonction pour check les collisions
+        for(int i = 0;i<7;i++){
 
-                this->zelda->setTileEpee(position); // affichage des images de l'epee
-                delay(10);//ajout de delai pour l'annimation
-
+            this->zelda->setTileEpee(position); // affichage des images de l'epee
+            delay(10);//ajout de delai pour l'annimation
+            if (i == 0)
+            {
                 if(zelda->positionZelda == 'R')this->old->setX(this->zelda->getPosX() + 25);
                 if(zelda->positionZelda == 'L')this->old->setX(this->zelda->getPosX() - 25);
                 if(zelda->positionZelda == 'D')this->old->setY(this->zelda->getPosY() + 25);
@@ -325,18 +325,18 @@ void Map::keyPressEvent(QKeyEvent *event)
                 item = mapScene->collidingItems(this->old);
                 for (QGraphicsItem *a : item){
                     if (a->zValue() == 4.0)
-                        coli = true;
-                    if (coli = true && a->zValue() == 4.0){
-                        a->hide();
+                    {
+                        this->mapScene->removeItem(a);
+                        this->monstres.removeAt(this->monstres.indexOf(dynamic_cast<Hostile*>(a)));
                     }
                 }
+                if(zelda->positionZelda == 'R')this->old->setX(this->zelda->getPosX());
+                if(zelda->positionZelda == 'L')this->old->setX(this->zelda->getPosX());
+                if(zelda->positionZelda == 'D')this->old->setY(this->zelda->getPosY());
+                if(zelda->positionZelda == 'U')this->old->setY(this->zelda->getPosY());
             }
-            if(zelda->positionZelda == 'R')this->old->setX(this->zelda->getPosX());
-            if(zelda->positionZelda == 'L')this->old->setX(this->zelda->getPosX());
-            if(zelda->positionZelda == 'D')this->old->setY(this->zelda->getPosY());
-            if(zelda->positionZelda == 'U')this->old->setY(this->zelda->getPosY());
-            break;
         }
+        break;
     }
 
 
