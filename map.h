@@ -15,6 +15,7 @@
 #include "niveaux.h"
 #include "menuitem.h"
 #include "hostile.h"
+#include "arc.h"
 
 class Map : public QGraphicsView
 {
@@ -28,6 +29,7 @@ private:
     Camera *cameraView;
     Niveaux *niveaux;
     Joueur *zelda;
+    Arc *fleche;
     QList<Hostile*> monstres;
     int attaque1 = 0;
 

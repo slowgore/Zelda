@@ -313,7 +313,6 @@ void Map::keyPressEvent(QKeyEvent *event)
         if(attaque1 == 0){
             attaque1 = 1;
             QString position = this->zelda->positionZelda;
-            // this->zelda->attack(position) //fonction pour check les collisions
             for(int i = 0;i<7;i++){
 
                 this->zelda->setTileEpee(position); // affichage des images de l'epee
@@ -352,7 +351,6 @@ void Map::keyPressEvent(QKeyEvent *event)
         if(attaque1 == 0){
             attaque1 = 1;
             QString position = this->zelda->positionZelda;
-            // this->zelda->attack(position) //fonction pour check les collisions
             for(int i = 0;i<7;i++){
                 this->zelda->setTileArc(position); // affichage des images de l'epee
                 delay(10);//ajout de delai pour l'annimation
