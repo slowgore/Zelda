@@ -29,6 +29,7 @@ private:
     Niveaux *niveaux;
     Joueur *zelda;
     QList<Hostile*> monstres;
+    int attaque1 = 0;
 
 public:
     Map();

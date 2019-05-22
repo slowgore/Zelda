@@ -121,7 +121,7 @@ void Map::intinialisationScene()
 
     this->old = new QGraphicsPixmapItem(QPixmap(":/images/images/roche.png").scaled(30,30));
     this->old->setPos((this->zelda->getPosX()), (this->zelda->getPosY()));
-    this->old->setZValue(1.0);
+    this->old->setZValue(-1.0);
     this->zelda->getTile()->setPos((this->zelda->getPosX()), (this->zelda->getPosY()));
     this->zelda->getTile()->setZValue(5);
     this->mapScene->addItem(this->zelda->getTile());
@@ -310,31 +310,62 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_A:
     {
-        QString position = this->zelda->positionZelda;
-        // this->zelda->attack(position) //fonction pour check les collisions
-        for(int i = 0;i<7;i++){
+        if(attaque1 == 0){
+            attaque1 = 1;
+            QString position = this->zelda->positionZelda;
+            // this->zelda->attack(position) //fonction pour check les collisions
+            for(int i = 0;i<7;i++){
 
-            this->zelda->setTileEpee(position); // affichage des images de l'epee
-            delay(10);//ajout de delai pour l'annimation
-            if (i == 0)
-            {
-                if(zelda->positionZelda == 'R')this->old->setX(this->zelda->getPosX() + 25);
-                if(zelda->positionZelda == 'L')this->old->setX(this->zelda->getPosX() - 25);
-                if(zelda->positionZelda == 'D')this->old->setY(this->zelda->getPosY() + 25);
-                if(zelda->positionZelda == 'U')this->old->setY(this->zelda->getPosY() - 25);
-                item = mapScene->collidingItems(this->old);
-                for (QGraphicsItem *a : item){
-                    if (a->zValue() == 4.0)
-                    {
-                        this->mapScene->removeItem(a);
-                        this->monstres.removeAt(this->monstres.indexOf(dynamic_cast<Hostile*>(a)));
+                this->zelda->setTileEpee(position); // affichage des images de l'epee
+                delay(10);//ajout de delai pour l'annimation
+                if (i == 0)
+                {
+                    if(zelda->positionZelda == 'R')this->old->setX(this->zelda->getPosX() + 15);
+                    if(zelda->positionZelda == 'L')this->old->setX(this->zelda->getPosX() - 15);
+                    if(zelda->positionZelda == 'D')this->old->setY(this->zelda->getPosY() + 15);
+                    if(zelda->positionZelda == 'U')this->old->setY(this->zelda->getPosY() - 15);
+                    item = mapScene->collidingItems(this->old);
+                    for (QGraphicsItem *a : item){
+                        if (a->zValue() == 4.0)
+                        {
+                            this->mapScene->removeItem(a);
+                            this->monstres.removeAt(this->monstres.indexOf(dynamic_cast<Hostile*>(a)));
+                        }
                     }
+                    if(zelda->positionZelda == 'R')this->old->setX(this->zelda->getPosX());
+                    if(zelda->positionZelda == 'L')this->old->setX(this->zelda->getPosX());
+                    if(zelda->positionZelda == 'D')this->old->setY(this->zelda->getPosY());
+                    if(zelda->positionZelda == 'U')this->old->setY(this->zelda->getPosY());
                 }
-                if(zelda->positionZelda == 'R')this->old->setX(this->zelda->getPosX());
-                if(zelda->positionZelda == 'L')this->old->setX(this->zelda->getPosX());
-                if(zelda->positionZelda == 'D')this->old->setY(this->zelda->getPosY());
-                if(zelda->positionZelda == 'U')this->old->setY(this->zelda->getPosY());
             }
+            attaque1 = 0;
+        }
+
+        else{
+        break;
+        }
+        break;
+    }
+
+    case Qt::Key_E:
+    {
+        if(attaque1 == 0){
+            attaque1 = 1;
+            QString position = this->zelda->positionZelda;
+            // this->zelda->attack(position) //fonction pour check les collisions
+            for(int i = 0;i<7;i++){
+                this->zelda->setTileArc(position); // affichage des images de l'epee
+                delay(10);//ajout de delai pour l'annimation
+
+                if(i==3){
+
+                }
+            }
+            attaque1 = 0;
+        }
+
+        else{
+        break;
         }
         break;
     }

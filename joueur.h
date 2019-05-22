@@ -24,6 +24,7 @@ public:
     int* getIm_link();
     void setTitle(QGraphicsPixmapItem *tile);
     void setTileEpee(QString position);
+    void setTileArc(QString position);
     Epee *getSword() const;
     void setSword(Epee *value);
 

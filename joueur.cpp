@@ -99,3 +99,38 @@ void Joueur::setTileEpee(QString position)
                this->tile->setPixmap(QPixmap(im).scaled(30,30));
            }
 }
+
+void Joueur::setTileArc(QString position){
+    QString s = QString::number(this->number);
+           if(position == "R"){ //si il y a une attaque d'arc a droite
+               if (this->image_Epee[0] == 7)
+                   this->image_Epee[0] = 0;
+               QString im = ":/Arc/Arc/right" + QString::number(this->image_Epee[0]) +".png";
+               this->image_Epee[0]++;
+               this->tile->setPixmap(QPixmap(im).scaled(30,30));
+
+           }
+           if(position == "L"){ //si il y a une attaque d'arc a gauche
+               if (this->image_Epee[1] == 7)
+                   this->image_Epee[1] = 0;
+               QString im = ":/Arc/Arc/left" + QString::number(this->image_Epee[1]) +".png";
+               this->image_Epee[1]++;
+               this->tile->setPixmap(QPixmap(im).scaled(30,30));
+
+           }
+           if(position == "D"){ //si il y a une attaque d'arc en bas
+               if (this->image_Epee[2] == 7)
+                   this->image_Epee[2] = 0;
+               QString im = ":/Arc/Arc/down" + QString::number(this->image_Epee[2]) +".png";
+               this->image_Epee[2]++;
+               this->tile->setPixmap(QPixmap(im).scaled(30,30));
+
+           }
+           if(position == "U"){ //si il y a une attaque d'arc en haut
+               if (this->image_Epee[3] == 7)
+                   this->image_Epee[3] = 0;
+               QString im = ":/Arc/Arc/up" + QString::number(this->image_Epee[3]) +".png";
+               this->image_Epee[3]++;
+               this->tile->setPixmap(QPixmap(im).scaled(30,30));
+           }
+}

@@ -90,4 +90,40 @@
         <file>AttaqueEpee/up5.png</file>
         <file>AttaqueEpee/up6.png</file>
     </qresource>
+    <qresource prefix="/Arc">
+        <file>Arc/down0.png</file>
+        <file>Arc/down1.png</file>
+        <file>Arc/down2.png</file>
+        <file>Arc/down3.png</file>
+        <file>Arc/down4.png</file>
+        <file>Arc/down5.png</file>
+        <file>Arc/down6.png</file>
+        <file>Arc/left0.png</file>
+        <file>Arc/left1.png</file>
+        <file>Arc/left2.png</file>
+        <file>Arc/left3.png</file>
+        <file>Arc/left4.png</file>
+        <file>Arc/left5.png</file>
+        <file>Arc/left6.png</file>
+        <file>Arc/right0.png</file>
+        <file>Arc/right1.png</file>
+        <file>Arc/right2.png</file>
+        <file>Arc/right3.png</file>
+        <file>Arc/right4.png</file>
+        <file>Arc/right5.png</file>
+        <file>Arc/right6.png</file>
+        <file>Arc/up0.png</file>
+        <file>Arc/up1.png</file>
+        <file>Arc/up2.png</file>
+        <file>Arc/up3.png</file>
+        <file>Arc/up4.png</file>
+        <file>Arc/up5.png</file>
+        <file>Arc/up6.png</file>
+    </qresource>
+    <qresource prefix="/fleches">
+        <file>fleches/down.png</file>
+        <file>fleches/left.png</file>
+        <file>fleches/right.png</file>
+        <file>fleches/up.png</file>
+    </qresource>
 </RCC>
