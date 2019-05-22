@@ -32,6 +32,7 @@ private:
     Arc *fleche;
     QList<Hostile*> monstres;
     int attaque1 = 0;
+    int invincible = 0;
 
 public:
     Map();

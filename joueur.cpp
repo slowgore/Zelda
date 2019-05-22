@@ -21,16 +21,24 @@ int* Joueur::getIm_link(){
     return this->image_link;
 }
 
-void Joueur::changePixmap(char a)
+void Joueur::changePixmap(char a , int invincible)
 {
     if (a == 'R')
     {
         this->positionZelda = "R";
         if (this->image_link[0] == 7)
             this->image_link[0] = 1;
-        QString im = ":/images/images/zelda_right/" + QString::number(this->image_link[0] * 10) +".png";
-        this->image_link[0]++;
-        this->tile->setPixmap(QPixmap(im).scaled(30,30));
+        if(invincible == 0){
+            QString im = ":/images/images/zelda_right/" + QString::number(this->image_link[0] * 10) +".png";
+            this->image_link[0]++;
+            this->tile->setPixmap(QPixmap(im).scaled(30,30));
+        }
+        if(invincible == 1){
+            QString im = ":/images/images/invincible/zelda_right/" + QString::number(this->image_link[0] * 10) +".png";
+            this->image_invincible[0]++;
+            this->tile->setPixmap(QPixmap(im).scaled(30,30));
+        }
+
     }
 
     if (a == 'L')
@@ -133,4 +141,38 @@ void Joueur::setTileArc(QString position){
                this->image_Epee[3]++;
                this->tile->setPixmap(QPixmap(im).scaled(30,30));
            }
+}
+void Joueur::setTileInvicibility(QString position){
+    QString s = QString::number(this->number);
+    if (position == "R"){
+        if (this->image_invincible[0] == 7)
+            this->image_invincible[0] = 1;
+        QString im = ":/images/images/zelda_right/" + QString::number(this->image_invincible[0] * 10) +".png";
+        this->image_invincible[0]++;
+        this->tile->setPixmap(QPixmap(im).scaled(30,30));
+    }
+
+    if (position == "L"){
+        if (this->image_invincible[1] == 7)
+            this->image_invincible[1] = 1;
+        QString im = ":/images/images/zelda_left/" + QString::number(this->image_invincible[1] * 10) +".png";
+        this->image_invincible[1]++;
+        this->tile->setPixmap(QPixmap(im).scaled(30,30));
+    }
+
+    if (position == "D"){
+        if (this->image_invincible[2] == 7)
+            this->image_invincible[2] = 1;
+        QString im = ":/images/images/zelda_down/" + QString::number(this->image_invincible[2] * 10) +".png";
+        this->image_invincible[2]++;
+        this->tile->setPixmap(QPixmap(im).scaled(30,30));
+    }
+
+    if (position == "U"){
+        if (this->image_invincible[3] == 7)
+            this->image_invincible[3] = 1;
+        QString im = ":/images/images/zelda_up/" + QString::number(this->image_invincible[3] * 10) +".png";
+        this->image_invincible[3]++;
+        this->tile->setPixmap(QPixmap(im).scaled(30,30));
+    }
 }

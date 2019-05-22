@@ -158,11 +158,20 @@ void Map::keyPressEvent(QKeyEvent *event)
         {
             if (a->zValue() == 2.0)
                 coli = true;
+            if(a->zValue() == 4.0 && invincible == 0){
+                invincible = 1;
+                this->zelda->setLifeStatue(this->zelda->getLifeStatue()-1);
+                for (int i = 0 ; i < 30 ; i++){
+                    delay(10);
+                    if(i==29)
+                        invincible = 0;
+                }
+            }
         }
 
         if (this->zelda->getPosX() == this->cameraView->getPosX() + 250) {
             if (!coli) {
-                this->zelda->changePixmap('R');
+                this->zelda->changePixmap('R', invincible);
                 this->zelda->getTile()->setX(this->zelda->getPosX() + 10);
                 this->zelda->setPosX(10);
                 if (this->cameraView->getPosX() < 1000)
@@ -176,7 +185,7 @@ void Map::keyPressEvent(QKeyEvent *event)
             {
                 if (!coli)
                 {
-                    this->zelda->changePixmap('R');
+                    this->zelda->changePixmap('R', invincible);
                     this->zelda->getTile()->setX(this->zelda->getPosX() + 10);
                     this->zelda->setPosX(10);
                 } else {
@@ -202,7 +211,7 @@ void Map::keyPressEvent(QKeyEvent *event)
         if(this->zelda->getPosX() == this->cameraView->getPosX() + 250){
             if (!coli)
             {
-                this->zelda->changePixmap('L');
+                this->zelda->changePixmap('L', invincible);
                 this->zelda->getTile()->setX(this->zelda->getPosX() - 10);
                 this->zelda->setPosX(-10);
                 if (this->cameraView->getPosX() > 0)
@@ -216,7 +225,7 @@ void Map::keyPressEvent(QKeyEvent *event)
             {
                 if (!coli)
                 {
-                    this->zelda->changePixmap('L');
+                    this->zelda->changePixmap('L',invincible);
                     this->zelda->getTile()->setX(this->zelda->getPosX() - 10);
                     this->zelda->setPosX(-10);
                 } else {
@@ -241,7 +250,7 @@ void Map::keyPressEvent(QKeyEvent *event)
         if (this->zelda->getPosY() == this->cameraView->getPosY() + 250) {
             if (!coli)
             {
-                this->zelda->changePixmap('D');
+                this->zelda->changePixmap('D', invincible);
                 this->zelda->getTile()->setY(this->zelda->getPosY() + 10);
                 this->zelda->setPosY(10);
                 if (this->cameraView->getPosY() < 500)
@@ -255,7 +264,7 @@ void Map::keyPressEvent(QKeyEvent *event)
             {
                 if (!coli)
                 {
-                    this->zelda->changePixmap('D');
+                    this->zelda->changePixmap('D', invincible);
                     this->zelda->getTile()->setY(this->zelda->getPosY() + 10);
                     this->zelda->setPosY(10);
                 } else {
@@ -281,7 +290,7 @@ void Map::keyPressEvent(QKeyEvent *event)
         if (this->zelda->getPosY() == this->cameraView->getPosY() + 250){
             if (!coli)
             {
-                this->zelda->changePixmap('U');
+                this->zelda->changePixmap('U', invincible);
                 this->zelda->getTile()->setY(this->zelda->getPosY() - 10);
                 this->zelda->setPosY(-10);
                 if (this->cameraView->getPosY() > 0)
@@ -295,7 +304,7 @@ void Map::keyPressEvent(QKeyEvent *event)
             {
                 if (!coli)
                 {
-                    this->zelda->changePixmap('U');
+                    this->zelda->changePixmap('U', invincible);
                     this->zelda->getTile()->setY(this->zelda->getPosY() - 10);
                     this->zelda->setPosY(-10);
                 } else {
