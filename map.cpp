@@ -330,10 +330,11 @@ void Map::keyPressEvent(QKeyEvent *event)
                         a->hide();
                     }
                 }
-
-
-
             }
+            if(zelda->positionZelda == 'R')this->old->setX(this->zelda->getPosX());
+            if(zelda->positionZelda == 'L')this->old->setX(this->zelda->getPosX());
+            if(zelda->positionZelda == 'D')this->old->setY(this->zelda->getPosY());
+            if(zelda->positionZelda == 'U')this->old->setY(this->zelda->getPosY());
             break;
         }
     }
