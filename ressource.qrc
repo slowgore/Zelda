@@ -120,52 +120,52 @@
         <file>images/attaqueepee/up5.png</file>
         <file>images/attaqueepee/up6.png</file>
         <file>images/invincible/zelda_down/10.png</file>
-        <file>images/invincible/zelda_down/11.png</file>
         <file>images/invincible/zelda_down/20.png</file>
-        <file>images/invincible/zelda_down/21.png</file>
         <file>images/invincible/zelda_down/30.png</file>
-        <file>images/invincible/zelda_down/31.png</file>
         <file>images/invincible/zelda_down/40.png</file>
-        <file>images/invincible/zelda_down/41.png</file>
         <file>images/invincible/zelda_down/50.png</file>
-        <file>images/invincible/zelda_down/51.png</file>
         <file>images/invincible/zelda_down/60.png</file>
-        <file>images/invincible/zelda_down/61.png</file>
+        <file>images/invincible/zelda_down/70.png</file>
+        <file>images/invincible/zelda_down/80.png</file>
+        <file>images/invincible/zelda_down/90.png</file>
+        <file>images/invincible/zelda_down/100.png</file>
+        <file>images/invincible/zelda_down/110.png</file>
+        <file>images/invincible/zelda_down/120.png</file>
         <file>images/invincible/zelda_left/10.png</file>
-        <file>images/invincible/zelda_left/11.png</file>
         <file>images/invincible/zelda_left/20.png</file>
-        <file>images/invincible/zelda_left/21.png</file>
         <file>images/invincible/zelda_left/30.png</file>
-        <file>images/invincible/zelda_left/31.png</file>
         <file>images/invincible/zelda_left/40.png</file>
-        <file>images/invincible/zelda_left/41.png</file>
         <file>images/invincible/zelda_left/50.png</file>
-        <file>images/invincible/zelda_left/51.png</file>
         <file>images/invincible/zelda_left/60.png</file>
-        <file>images/invincible/zelda_left/61.png</file>
+        <file>images/invincible/zelda_left/70.png</file>
+        <file>images/invincible/zelda_left/80.png</file>
+        <file>images/invincible/zelda_left/90.png</file>
+        <file>images/invincible/zelda_left/100.png</file>
+        <file>images/invincible/zelda_left/110.png</file>
+        <file>images/invincible/zelda_left/120.png</file>
         <file>images/invincible/zelda_right/10.png</file>
-        <file>images/invincible/zelda_right/11.png</file>
         <file>images/invincible/zelda_right/20.png</file>
-        <file>images/invincible/zelda_right/21.png</file>
         <file>images/invincible/zelda_right/30.png</file>
-        <file>images/invincible/zelda_right/31.png</file>
         <file>images/invincible/zelda_right/40.png</file>
-        <file>images/invincible/zelda_right/41.png</file>
         <file>images/invincible/zelda_right/50.png</file>
-        <file>images/invincible/zelda_right/51.png</file>
         <file>images/invincible/zelda_right/60.png</file>
-        <file>images/invincible/zelda_right/61.png</file>
+        <file>images/invincible/zelda_right/70.png</file>
+        <file>images/invincible/zelda_right/80.png</file>
+        <file>images/invincible/zelda_right/90.png</file>
+        <file>images/invincible/zelda_right/100.png</file>
+        <file>images/invincible/zelda_right/110.png</file>
+        <file>images/invincible/zelda_right/120.png</file>
         <file>images/invincible/zelda_up/10.png</file>
-        <file>images/invincible/zelda_up/11.png</file>
         <file>images/invincible/zelda_up/20.png</file>
-        <file>images/invincible/zelda_up/21.png</file>
         <file>images/invincible/zelda_up/30.png</file>
-        <file>images/invincible/zelda_up/31.png</file>
         <file>images/invincible/zelda_up/40.png</file>
-        <file>images/invincible/zelda_up/41.png</file>
         <file>images/invincible/zelda_up/50.png</file>
-        <file>images/invincible/zelda_up/51.png</file>
         <file>images/invincible/zelda_up/60.png</file>
-        <file>images/invincible/zelda_up/61.png</file>
+        <file>images/invincible/zelda_up/70.png</file>
+        <file>images/invincible/zelda_up/80.png</file>
+        <file>images/invincible/zelda_up/90.png</file>
+        <file>images/invincible/zelda_up/100.png</file>
+        <file>images/invincible/zelda_up/110.png</file>
+        <file>images/invincible/zelda_up/120.png</file>
     </qresource>
 </RCC>

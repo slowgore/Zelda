@@ -26,14 +26,18 @@ void Joueur::changePixmap(char a , int invincible)
     if (a == 'R')
     {
         this->positionZelda = "R";
+        if(invincible == 0){
         if (this->image_link[0] == 7)
             this->image_link[0] = 1;
-        if(invincible == 0){
+
             QString im = ":/images/images/zelda_right/" + QString::number(this->image_link[0] * 10) +".png";
             this->image_link[0]++;
             this->tile->setPixmap(QPixmap(im).scaled(30,30));
         }
         if(invincible == 1){
+            if (this->image_invincible[0] == 13)
+                this->image_invincible[0] = 1;
+
             QString im = ":/images/images/invincible/zelda_right/" + QString::number(this->image_link[0] * 10) +".png";
             this->image_invincible[0]++;
             this->tile->setPixmap(QPixmap(im).scaled(30,30));
