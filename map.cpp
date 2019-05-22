@@ -131,7 +131,6 @@ void Map::intinialisationScene()
     {
         this->mapScene->addItem(m->getTile());
     }
-    //affichageMonstre(monstres);
     setScene(mapScene);
 
 }
@@ -325,13 +324,14 @@ void Map::keyPressEvent(QKeyEvent *event)
                 if(zelda->positionZelda == 'U')this->old->setY(this->zelda->getPosY() - 25);
                 item = mapScene->collidingItems(this->old);
                 for (QGraphicsItem *a : item){
-                    if (a->zValue() == 2.0)
+                    if (a->zValue() == 4.0)
                         coli = true;
+                    if (coli = true && a->zValue() == 4.0){
+                        a->hide();
+                    }
                 }
 
-                if (!coli){
 
-                }
 
             }
             break;
