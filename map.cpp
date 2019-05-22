@@ -206,6 +206,15 @@ void Map::keyPressEvent(QKeyEvent *event)
         {
             if (a->zValue() == 2.0)
                 coli = true;
+            if(a->zValue() == 4.0 && invincible == 0){
+                invincible = 1;
+                this->zelda->setLifeStatue(this->zelda->getLifeStatue()-1);
+                for (int i = 0 ; i < 30 ; i++){
+                    delay(10);
+                    if(i==29)
+                        invincible = 0;
+                }
+            }
         }
 
         if(this->zelda->getPosX() == this->cameraView->getPosX() + 250){
@@ -245,6 +254,15 @@ void Map::keyPressEvent(QKeyEvent *event)
         {
             if (a->zValue() == 2.0)
                 coli = true;
+            if(a->zValue() == 4.0 && invincible == 0){
+                invincible = 1;
+                this->zelda->setLifeStatue(this->zelda->getLifeStatue()-1);
+                for (int i = 0 ; i < 30 ; i++){
+                    delay(10);
+                    if(i==29)
+                        invincible = 0;
+                }
+            }
         }
 
         if (this->zelda->getPosY() == this->cameraView->getPosY() + 250) {
@@ -285,6 +303,15 @@ void Map::keyPressEvent(QKeyEvent *event)
         {
             if (a->zValue() == 2.0)
                 coli = true;
+            if(a->zValue() == 4.0 && invincible == 0){
+                invincible = 1;
+                this->zelda->setLifeStatue(this->zelda->getLifeStatue()-1);
+                for (int i = 0 ; i < 30 ; i++){
+                    delay(10);
+                    if(i==29)
+                        invincible = 0;
+                }
+            }
         }
 
         if (this->zelda->getPosY() == this->cameraView->getPosY() + 250){
