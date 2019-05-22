@@ -70,7 +70,7 @@ void Joueur::setTileEpee(QString position)
            if(position == "R"){ //si il y a une attaque epee a droite
                if (this->image_Epee[0] == 7)
                    this->image_Epee[0] = 0;
-               QString im = ":/images/images/attaqueEpee/right" + QString::number(this->image_Epee[0]) +".png";
+               QString im = ":/images/images/attaqueepee/right" + QString::number(this->image_Epee[0]) +".png";
                this->image_Epee[0]++;
                this->tile->setPixmap(QPixmap(im).scaled(30,30));
 
@@ -78,7 +78,7 @@ void Joueur::setTileEpee(QString position)
            if(position == "L"){ //si il y a une attaque epee a gauche
                if (this->image_Epee[1] == 7)
                    this->image_Epee[1] = 0;
-               QString im = ":/images/images/attaqueEpee/left" + QString::number(this->image_Epee[1]) +".png";
+               QString im = ":/images/images/attaqueepee/left" + QString::number(this->image_Epee[1]) +".png";
                this->image_Epee[1]++;
                this->tile->setPixmap(QPixmap(im).scaled(30,30));
 
@@ -86,7 +86,7 @@ void Joueur::setTileEpee(QString position)
            if(position == "D"){ //si il y a une attaque epee en bas
                if (this->image_Epee[2] == 7)
                    this->image_Epee[2] = 0;
-               QString im = ":/images/images/attaqueEpee/down" + QString::number(this->image_Epee[2]) +".png";
+               QString im = ":/images/images/attaqueepee/down" + QString::number(this->image_Epee[2]) +".png";
                this->image_Epee[2]++;
                this->tile->setPixmap(QPixmap(im).scaled(30,30));
 
@@ -94,7 +94,7 @@ void Joueur::setTileEpee(QString position)
            if(position == "U"){ //si il y a une attaque epee en haut
                if (this->image_Epee[3] == 7)
                    this->image_Epee[3] = 0;
-               QString im = ":/images/images/attaqueEpee/up" + QString::number(this->image_Epee[3]) +".png";
+               QString im = ":/images/images/attaqueepee/up" + QString::number(this->image_Epee[3]) +".png";
                this->image_Epee[3]++;
                this->tile->setPixmap(QPixmap(im).scaled(30,30));
            }

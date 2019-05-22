@@ -91,5 +91,33 @@
         <file>images/fleches/left.png</file>
         <file>images/fleches/right.png</file>
         <file>images/fleches/up.png</file>
+        <file>images/ettaqueepee/down0.png</file>
+        <file>images/ettaqueepee/down1.png</file>
+        <file>images/ettaqueepee/down2.png</file>
+        <file>images/ettaqueepee/down3.png</file>
+        <file>images/ettaqueepee/down4.png</file>
+        <file>images/ettaqueepee/down5.png</file>
+        <file>images/ettaqueepee/down6.png</file>
+        <file>images/ettaqueepee/left0.png</file>
+        <file>images/ettaqueepee/left1.png</file>
+        <file>images/ettaqueepee/left2.png</file>
+        <file>images/ettaqueepee/left3.png</file>
+        <file>images/ettaqueepee/left4.png</file>
+        <file>images/ettaqueepee/left5.png</file>
+        <file>images/ettaqueepee/left6.png</file>
+        <file>images/ettaqueepee/right0.png</file>
+        <file>images/ettaqueepee/right1.png</file>
+        <file>images/ettaqueepee/right2.png</file>
+        <file>images/ettaqueepee/right3.png</file>
+        <file>images/ettaqueepee/right4.png</file>
+        <file>images/ettaqueepee/right5.png</file>
+        <file>images/ettaqueepee/right6.png</file>
+        <file>images/ettaqueepee/up0.png</file>
+        <file>images/ettaqueepee/up1.png</file>
+        <file>images/ettaqueepee/up2.png</file>
+        <file>images/ettaqueepee/up3.png</file>
+        <file>images/ettaqueepee/up4.png</file>
+        <file>images/ettaqueepee/up5.png</file>
+        <file>images/ettaqueepee/up6.png</file>
     </qresource>
 </RCC>
