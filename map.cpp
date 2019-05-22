@@ -121,7 +121,7 @@ void Map::intinialisationScene()
 
     this->old = new QGraphicsPixmapItem(QPixmap(":/images/images/roche.png").scaled(30,30));
     this->old->setPos((this->zelda->getPosX()), (this->zelda->getPosY()));
-    this->old->setZValue(-1.0);
+    this->old->setZValue(1.0);
     this->zelda->getTile()->setPos((this->zelda->getPosX()), (this->zelda->getPosY()));
     this->zelda->getTile()->setZValue(5);
     this->mapScene->addItem(this->zelda->getTile());
@@ -318,6 +318,21 @@ void Map::keyPressEvent(QKeyEvent *event)
 
                 this->zelda->setTileEpee(position); // affichage des images de l'epee
                 delay(10);//ajout de delai pour l'annimation
+
+                if(zelda->positionZelda == 'R')this->old->setX(this->zelda->getPosX() + 25);
+                if(zelda->positionZelda == 'L')this->old->setX(this->zelda->getPosX() - 25);
+                if(zelda->positionZelda == 'D')this->old->setY(this->zelda->getPosY() + 25);
+                if(zelda->positionZelda == 'U')this->old->setY(this->zelda->getPosY() - 25);
+                item = mapScene->collidingItems(this->old);
+                for (QGraphicsItem *a : item){
+                    if (a->zValue() == 2.0)
+                        coli = true;
+                }
+
+                if (!coli){
+
+                }
+
             }
             break;
         }
