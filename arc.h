@@ -3,19 +3,26 @@
 
 #include <QAbstractItemModel>
 #include <QGraphicsItem>
+#include <QWidget>
+#include <QTimer>
 
-class Arc
+class Arc : public QWidget
 {
+    Q_OBJECT
 
 public:
-    Arc();
-    QPixmap getTileFleche() const;
-    void setTileFleche(const QPixmap &value);
-    void fleches();
+    Arc(QString direction);
+    QGraphicsPixmapItem* getTileFleche();
+    void setTileFleche(QGraphicsPixmapItem *value);
+    ~Arc();
 
 private:
-    QPixmap tile;
-    int distance = 0;
+    QGraphicsPixmapItem *tile;
+    QTimer *timer;
+    QString direction;
+
+public slots:
+    void updatefleche();
 
 };
 

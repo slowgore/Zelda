@@ -349,6 +349,7 @@ void Map::keyPressEvent(QKeyEvent *event)
     case Qt::Key_E:
     {
         if(attaque1 == 0){
+            //this->mapScene->removeItem(this->fleche->getTileFleche());
             attaque1 = 1;
             QString position = this->zelda->positionZelda;
             for(int i = 0;i<7;i++){
@@ -356,9 +357,13 @@ void Map::keyPressEvent(QKeyEvent *event)
                 delay(10);//ajout de delai pour l'annimation
 
                 if(i==3){
-
+                    this->fleche = new Arc(this->zelda->positionZelda);
+                    this->fleche->getTileFleche()->setPos(this->zelda->getPosX(), this->zelda->getPosY());
+                    this->mapScene->addItem(this->fleche->getTileFleche());
                 }
             }
+            this->mapScene->removeItem(this->fleche->getTileFleche());
+            this->fleche->~Arc();
             attaque1 = 0;
         }
 

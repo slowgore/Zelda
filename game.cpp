@@ -28,10 +28,5 @@ void Game::updateMonster()
     this->view->updateMonster();
 }
 
-//void Game::onKeyPress(string key)
-//{
-//}
-
-
 Game::~Game(){
 }
