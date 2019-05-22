@@ -7,7 +7,11 @@ Map::Map()
     this->zelda = new Joueur();
     this->niveaux = new Niveaux();
     this->menu = new MenuItem(this->zelda->getLifeStatue());
-    this->monstres = new Hostile(400,400);
+    this->monstres.append(new Hostile(400,400));
+    this->monstres.append(new Hostile(1000,200));
+    this->monstres.append(new Hostile(600,700));
+    this->monstres.append(new Hostile(1100,500));
+    this->monstres.append(new Hostile(200,300));
     this->setFixedSize(500, 500);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -123,7 +127,10 @@ void Map::intinialisationScene()
     this->mapScene->addItem(this->zelda->getTile());
     this->mapScene->addItem(this->old);
 
-    this->mapScene->addItem(this->monstres->getTile());
+    for (Hostile *m : this->monstres)
+    {
+        this->mapScene->addItem(m->getTile());
+    }
     //affichageMonstre(monstres);
     setScene(mapScene);
 
@@ -353,33 +360,36 @@ void Map::affichageMenuEnHaut()
 
 void Map::updateMonster()
 {
-    int direction = qrand()%8;
-    if (direction == 0 || direction == 1)
+    for (Hostile *m : this->monstres)
     {
-        this->monstres->setPosX(10);
-        this->monstres->changePixmap('R');
-        this->monstres->getTile()->setX(this->monstres->getPosX());
-    }
+        int direction = qrand()%8;
+        if (direction == 0 || direction == 1)
+        {
+            m->setPosX(10);
+            m->changePixmap('R');
+            m->getTile()->setX(m->getPosX());
+        }
 
-    if (direction == 2 || direction == 3)
-    {
-        this->monstres->setPosX(-10);
-        this->monstres->changePixmap('L');
-        this->monstres->getTile()->setX(this->monstres->getPosX());
-    }
+        if (direction == 2 || direction == 3)
+        {
+            m->setPosX(-10);
+            m->changePixmap('L');
+            m->getTile()->setX(m->getPosX());
+        }
 
-    if (direction == 4 || direction == 5)
-    {
-        this->monstres->setPosY(10);
-        this->monstres->changePixmap('D');
-        this->monstres->getTile()->setY(this->monstres->getPosY());
-    }
+        if (direction == 4 || direction == 5)
+        {
+            m->setPosY(10);
+            m->changePixmap('D');
+            m->getTile()->setY(m->getPosY());
+        }
 
-    if (direction == 6 || direction == 7)
-    {
-        this->monstres->setPosY(-10);
-        this->monstres->changePixmap('U');
-        this->monstres->getTile()->setY(this->monstres->getPosY());
+        if (direction == 6 || direction == 7)
+        {
+            m->setPosY(-10);
+            m->changePixmap('U');
+            m->getTile()->setY(m->getPosY());
+        }
     }
 }
 

@@ -28,7 +28,7 @@ private:
     Camera *cameraView;
     Niveaux *niveaux;
     Joueur *zelda;
-    Hostile *monstres;
+    QList<Hostile*> monstres;
 
 public:
     Map();
