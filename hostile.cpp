@@ -39,6 +39,11 @@ void Hostile::setPosYinitiale(int value)
     setPosY(value);
 }
 
+QString Hostile::getDirection()
+{
+    return directionMonstre;
+}
+
 void Hostile::changePixmap(char a)
 {
     if (a == 'R')

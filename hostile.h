@@ -6,6 +6,7 @@
 #include <QDebug>
 
 #include "personnage.h"
+#include "boulefeu.h"
 
 class Hostile : public Personnage
 {
@@ -22,6 +23,8 @@ public:
 
     void changePosFunc(int nb);
     void changePixmap(char a);
+
+    QString getDirection();
 
 private:
     QGraphicsPixmapItem *tile;

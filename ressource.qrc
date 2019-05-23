@@ -167,5 +167,6 @@
         <file>images/invincible/zelda_up/100.png</file>
         <file>images/invincible/zelda_up/110.png</file>
         <file>images/invincible/zelda_up/120.png</file>
+        <file>images/boule.png</file>
     </qresource>
 </RCC>

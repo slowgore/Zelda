@@ -38,7 +38,8 @@ SOURCES += \
     hostile.cpp \
     epee.cpp \
     armes.cpp \
-    arc.cpp
+    arc.cpp \
+    boulefeu.cpp
 
 HEADERS += \
         game.h \
@@ -52,7 +53,8 @@ HEADERS += \
     hostile.h \
     epee.h \
     armes.h \
-    arc.h
+    arc.h \
+    boulefeu.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

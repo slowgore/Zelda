@@ -12,6 +12,12 @@ Map::Map()
     this->monstres.append(new Hostile(600,700));
     this->monstres.append(new Hostile(1100,500));
     this->monstres.append(new Hostile(200,300));
+    this->monstres.append(new Hostile(500,300));
+    this->monstres.append(new Hostile(600,400));
+    this->monstres.append(new Hostile(500,200));
+    this->monstres.append(new Hostile(1100,300));
+    this->monstres.append(new Hostile(200,700));
+    this->monstres.append(new Hostile(800,100));
     this->setFixedSize(500, 500);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -139,6 +145,19 @@ void Map::update(){
     mapScene->setSceneRect(cameraView->getPosX(), cameraView->getPosY(), 500, 500);
     this->menu->getRect()->setX(cameraView->getPosX());
     this->menu->getRect()->setY(cameraView->getPosY());
+    QList<QGraphicsItem*> item = this->zelda->getTile()->collidingItems();
+    for (QGraphicsItem *m:item)
+    {
+        if (m->zValue() == 3.0)
+        {
+            this->zelda->setLifeStatue(this->zelda->getLifeStatue()-1);
+            m->setZValue(-1.0);
+            updateMenuHaut();
+            invincible = 1;
+            delay(500);
+            invincible = 0;
+        }
+    }
     updateMenuHaut();
 }
 
@@ -151,7 +170,6 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Right:
     {
-        //this->zelda->setLifeStatue(this->zelda->getLifeStatue()-1); //test pour l'affichage de la vie, a enlever plus tard
         this->old->setX(this->zelda->getPosX() + 10);
         item = mapScene->collidingItems(this->old);
         for (QGraphicsItem *a : item)
@@ -320,7 +338,7 @@ void Map::keyPressEvent(QKeyEvent *event)
                 this->zelda->setLifeStatue(this->zelda->getLifeStatue()-1);
                 for (int i = 3 ; i > 0 ; i--){
                     qDebug("Fin d'invulnérabilité dans : %d", i);
-                    delay(1000);
+                    delay(10);
                     if(i==1)
                         qDebug("Vous etes vulnerable ! ");
                         invincible = 0;
@@ -382,7 +400,12 @@ void Map::keyPressEvent(QKeyEvent *event)
                         if (a->zValue() == 4.0)
                         {
                             this->mapScene->removeItem(a);
-                            this->monstres.removeAt(this->monstres.indexOf(dynamic_cast<Hostile*>(a)));
+                            a->setZValue(-1);
+                            for (Hostile *m:this->monstres)
+                            {
+                                if (m->getTile()->zValue() == -1.0)
+                                    this->monstres.removeAt(this->monstres.indexOf(m));
+                            }
                             int randomValue = qrand() % 100;
                             if(randomValue <= 30)
                                 spawnHeart();
@@ -420,15 +443,19 @@ void Map::keyPressEvent(QKeyEvent *event)
                 }
             }
             if (this->fleche->getCollison() != nullptr)
+            {
                 this->mapScene->removeItem(this->fleche->getCollison());
+                this->fleche->getCollison()->setZValue(-1);
+                for (Hostile *m:this->monstres)
+                {
+                    if (m->getTile()->zValue() == -1.0)
+                        this->monstres.removeAt(this->monstres.indexOf(m));
+                }
+            }
 
             this->mapScene->removeItem(this->fleche->getTileFleche());
             this->fleche->~Arc();
             attaque1 = 0;
-        }
-
-        else{
-        break;
         }
         break;
     }
@@ -499,6 +526,17 @@ void Map::updateMonster()
             m->setPosY(-10);
             m->changePixmap('U');
             m->getTile()->setY(m->getPosY());
+        }
+
+        int rand = qrand()%20;
+        if (rand == 1)
+        {
+            for (Hostile *m:this->monstres)
+            {
+                bouleFeu *b = new bouleFeu(m->getDirection());
+                b->getTile()->setPos(m->getPosX(), m->getPosY());
+                this->mapScene->addItem(b->getTile());
+            }
         }
     }
 }
