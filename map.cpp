@@ -167,6 +167,10 @@ void Map::keyPressEvent(QKeyEvent *event)
                         invincible = 0;
                 }
             }
+            if(a->zValue() == 6.0){
+                zelda->setLifeStatue(this->zelda->getLifeStatue()+1);
+                this->mapScene->removeItem(a);
+            }
         }
 
         if (this->zelda->getPosX() == this->cameraView->getPosX() + 250) {
@@ -214,6 +218,10 @@ void Map::keyPressEvent(QKeyEvent *event)
                     if(i==29)
                         invincible = 0;
                 }
+            }
+            if(a->zValue() == 6.0){
+                zelda->setLifeStatue(this->zelda->getLifeStatue()+1);
+                this->mapScene->removeItem(a);
             }
         }
 
@@ -263,6 +271,10 @@ void Map::keyPressEvent(QKeyEvent *event)
                         invincible = 0;
                 }
             }
+            if(a->zValue() == 6.0){
+                zelda->setLifeStatue(this->zelda->getLifeStatue()+1);
+                this->mapScene->removeItem(a);
+            }
         }
 
         if (this->zelda->getPosY() == this->cameraView->getPosY() + 250) {
@@ -311,6 +323,10 @@ void Map::keyPressEvent(QKeyEvent *event)
                     if(i==29)
                         invincible = 0;
                 }
+            }
+            if(a->zValue() == 6.0){
+                zelda->setLifeStatue(this->zelda->getLifeStatue()+1);
+                this->mapScene->removeItem(a);
             }
         }
 
@@ -365,6 +381,9 @@ void Map::keyPressEvent(QKeyEvent *event)
                         {
                             this->mapScene->removeItem(a);
                             this->monstres.removeAt(this->monstres.indexOf(dynamic_cast<Hostile*>(a)));
+                            int randomValue = qrand() % 100;
+                            if(randomValue <= 30)
+                                spawnHeart();
                         }
                     }
                     if(zelda->positionZelda == 'R')this->old->setX(this->zelda->getPosX());
@@ -432,8 +451,8 @@ void Map::affichageMenuEnHaut()
     this->menu->getRect()->setBrush(QPixmap(":/images/images/menuCoeur.png").scaled(110,70));
     this->menu->getRect()->setZValue(5);
 
-    float l=1;
-    float c=1;
+    int l=1;
+    int c=1;
     for (QGraphicsPixmapItem* heart : *this->menu->getHearts()){
         heart->setPos((this->cameraView->getPosX()+20*l),this->cameraView->getPosY()+15+1*c);
         heart->setZValue(10);
@@ -546,3 +565,25 @@ Camera* Map::getCameraView()
     return cameraView;
 }
 
+void Map::spawnHeart(){
+    if(zelda->positionZelda == 'R'){
+        posSpawnX = (this->zelda->getPosX() + 15);
+        posSpawnY = this->zelda->getPosY();
+    }
+    if(zelda->positionZelda == 'L'){
+        posSpawnX = (this->zelda->getPosX() - 15);
+        posSpawnY = this->zelda->getPosY();
+    }
+    if(zelda->positionZelda == 'D'){
+        posSpawnX = this->zelda->getPosX();
+        posSpawnY = (this->zelda->getPosY() + 15);
+    }
+    if(zelda->positionZelda == 'U'){
+        posSpawnX = this->zelda->getPosX();
+        posSpawnY = (this->zelda->getPosY() - 15);
+    }
+    QGraphicsPixmapItem * spawnHeart = new QGraphicsPixmapItem(QPixmap(":/images/images/heart.png").scaled(20,15));
+    spawnHeart->setPos(posSpawnX,posSpawnY);
+    spawnHeart->setZValue(6.0);
+    mapScene->addItem(spawnHeart);
+}

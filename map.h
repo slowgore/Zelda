@@ -33,6 +33,8 @@ private:
     QList<Hostile*> monstres;
     int attaque1 = 0;
     int invincible = 0;
+    int posSpawnX;
+    int posSpawnY;
 
 public:
     Map();
@@ -47,6 +49,7 @@ public:
     void updateMenuHaut();
     void updateMonster();
     void delay(int i);
+    void spawnHeart();
     QGraphicsScene *getMapScene();
     Camera *getCameraView();
 };
