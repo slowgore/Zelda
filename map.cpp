@@ -318,9 +318,11 @@ void Map::keyPressEvent(QKeyEvent *event)
             if(a->zValue() == 4.0 && invincible == 0){
                 invincible = 1;
                 this->zelda->setLifeStatue(this->zelda->getLifeStatue()-1);
-                for (int i = 0 ; i < 30 ; i++){
-                    delay(10);
-                    if(i==29)
+                for (int i = 3 ; i > 0 ; i--){
+                    qDebug("Fin d'invulnérabilité dans : %d", i);
+                    delay(1000);
+                    if(i==1)
+                        qDebug("Vous etes vulnerable ! ");
                         invincible = 0;
                 }
             }
@@ -567,20 +569,20 @@ Camera* Map::getCameraView()
 
 void Map::spawnHeart(){
     if(zelda->positionZelda == 'R'){
-        posSpawnX = (this->zelda->getPosX() + 15);
+        posSpawnX = (this->zelda->getPosX() + 20);
         posSpawnY = this->zelda->getPosY();
     }
     if(zelda->positionZelda == 'L'){
-        posSpawnX = (this->zelda->getPosX() - 15);
+        posSpawnX = (this->zelda->getPosX() - 20);
         posSpawnY = this->zelda->getPosY();
     }
     if(zelda->positionZelda == 'D'){
         posSpawnX = this->zelda->getPosX();
-        posSpawnY = (this->zelda->getPosY() + 15);
+        posSpawnY = (this->zelda->getPosY() + 20);
     }
     if(zelda->positionZelda == 'U'){
         posSpawnX = this->zelda->getPosX();
-        posSpawnY = (this->zelda->getPosY() - 15);
+        posSpawnY = (this->zelda->getPosY() - 20);
     }
     QGraphicsPixmapItem * spawnHeart = new QGraphicsPixmapItem(QPixmap(":/images/images/heart.png").scaled(20,15));
     spawnHeart->setPos(posSpawnX,posSpawnY);

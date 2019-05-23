@@ -9,6 +9,7 @@
 #include <QSound>
 #include <QKeyEvent>
 #include <QTime>
+#include <QDebug>
 
 #include "joueur.h"
 #include "camera.h"
