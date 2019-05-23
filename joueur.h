@@ -4,7 +4,6 @@
 #include <QPixmap>
 
 #include "personnage.h"
-#include "epee.h"
 
 class Joueur : public Personnage
 {
@@ -16,8 +15,6 @@ private:
     int image_Epee[4] = {1,1,1,1};
     int image_invincible[4] = {1,1,1,1};
 
-    Epee *epee;
-
 public:
     Joueur();
     ~Joueur();
@@ -28,11 +25,7 @@ public:
     void setTileEpee(QString position);
     void setTileArc(QString position);
     void setTileInvicibility(QString position);
-    Epee *getSword() const;
-    void setSword(Epee *value);
-
     QString positionZelda;
-    int number;  //position image epee
 
 };
 

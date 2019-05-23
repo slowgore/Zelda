@@ -1,14 +1,10 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include <vector>
+
 #include <iostream>
-#include <QGraphicsView>
 #include <QGraphicsScene>
-#include <QGraphicsPixmapItem>
-#include <QLabel>
 #include <QMovie>
-#include <QDebug>
 #include <QKeyEvent>
 
 class Camera:QGraphicsScene

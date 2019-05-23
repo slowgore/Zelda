@@ -5,9 +5,7 @@ MenuItem::MenuItem(int vie)
     rectangleDuHaut = new QGraphicsRectItem(0, 0, 110,70);
     QBrush im;
     im.setTextureImage(QImage(":/images/images/menuCoeur.png").scaled(100,70));
-    //rectangleDuHaut->setBrush(QPixmap(":/images/images/menuCoeur.png").scaled(100,70));
     rectangleDuHaut->setOpacity(1);
-    //rectangleDuHaut->setBrush(im);
 
     for (int i = 0; i < vie; i++)
     {
@@ -15,8 +13,6 @@ MenuItem::MenuItem(int vie)
     }
 
 }
-
-
 
 QGraphicsRectItem* MenuItem::getRect(){
     return this->rectangleDuHaut;

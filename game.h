@@ -13,7 +13,6 @@ class Game : public QWidget
 {
     Q_OBJECT
 private:
-    QGraphicsScene * Scene;
     Map * view;
     QTimer *timer;
     QTimer *timerM;

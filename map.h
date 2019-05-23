@@ -24,7 +24,6 @@ private:
     QGraphicsView *view;
     MenuItem *menu;
     QGraphicsPixmapItem* old;
-    //QMediaPlayer * musiqueNiv;
     QSound * musiqueNiv;
     QGraphicsScene *mapScene;
     Camera *cameraView;
@@ -39,14 +38,10 @@ private:
 
 public:
     Map();
-    void background();
-    void reset();
     void keyPressEvent(QKeyEvent *event);
     void intinialisationScene();
     void update();
     void affichageMenuEnHaut();
-    void affichageMonstre(Hostile *hostil);
-    void afficherPersonnage(Joueur *joueur);
     void updateMenuHaut();
     void updateMonster();
     void delay(int i);

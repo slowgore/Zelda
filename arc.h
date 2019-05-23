@@ -1,7 +1,6 @@
 #ifndef ARC_H
 #define ARC_H
 
-#include <QAbstractItemModel>
 #include <QGraphicsItem>
 #include <QWidget>
 #include <QTimer>

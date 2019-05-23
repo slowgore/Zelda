@@ -37,7 +37,6 @@ SOURCES += \
     menuitem.cpp \
     hostile.cpp \
     epee.cpp \
-    armes.cpp \
     arc.cpp \
     boulefeu.cpp
 
@@ -52,7 +51,6 @@ HEADERS += \
     menuitem.h \
     hostile.h \
     epee.h \
-    armes.h \
     arc.h \
     boulefeu.h
 

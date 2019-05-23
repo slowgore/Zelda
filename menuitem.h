@@ -14,7 +14,6 @@ private:
 
 public:
     MenuItem(int vie);
-    void affichageMenuEnHaut();
     QGraphicsRectItem* getRect();
     QList<QGraphicsPixmapItem*> *getHearts();
     ~MenuItem();

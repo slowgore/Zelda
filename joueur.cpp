@@ -104,7 +104,6 @@ void Joueur::changePixmap(char a , int invincible)
 
 void Joueur::setTileEpee(QString position)
 {
-    QString s = QString::number(this->number);
            if(position == "R"){ //si il y a une attaque epee a droite
                if (this->image_Epee[0] == 7)
                    this->image_Epee[0] = 0;
@@ -139,7 +138,6 @@ void Joueur::setTileEpee(QString position)
 }
 
 void Joueur::setTileArc(QString position){
-    QString s = QString::number(this->number);
            if(position == "R"){ //si il y a une attaque d'arc a droite
                if (this->image_Epee[0] == 7)
                    this->image_Epee[0] = 0;
@@ -173,7 +171,6 @@ void Joueur::setTileArc(QString position){
            }
 }
 void Joueur::setTileInvicibility(QString position){
-    QString s = QString::number(this->number);
     if (position == "R"){
         if (this->image_invincible[0] == 7)
             this->image_invincible[0] = 1;

@@ -1,7 +1,6 @@
 #ifndef BOULEFEU_H
 #define BOULEFEU_H
 
-#include <QAbstractItemModel>
 #include <QGraphicsItem>
 #include <QWidget>
 #include <QTimer>

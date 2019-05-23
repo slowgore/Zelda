@@ -25,14 +25,6 @@ Map::Map()
     musiqueNiv->play();
 }
 
-void Map::reset()
-{
-    delete this->mapScene;
-    delete this->cameraView;
-    this->mapScene = new QGraphicsScene(); // fixe
-    this->setFixedSize(500, 500);//la vue aura une taille fixe non modifiable
-//    this->setRenderHint(QPainter::Antialiasing, true);//sert a rien je crois
-}
 
 void Map::intinialisationScene()
 {
@@ -221,7 +213,6 @@ void Map::keyPressEvent(QKeyEvent *event)
 
     case Qt::Key_Left:
     {
-        //this->zelda->setLifeStatue(this->zelda->getLifeStatue()+1); //pour l'affichage de la vie a enlever plus tard
         this->old->setX(this->zelda->getPosX() - 10);
         item = mapScene->collidingItems(this->old);
         for (QGraphicsItem *a : item)
@@ -429,7 +420,6 @@ void Map::keyPressEvent(QKeyEvent *event)
     case Qt::Key_E:
     {
         if(attaque1 == 0){
-            //this->mapScene->removeItem(this->fleche->getTileFleche());
             attaque1 = 1;
             QString position = this->zelda->positionZelda;
             for(int i = 0;i<7;i++){
@@ -575,24 +565,6 @@ void Map::updateMenuHaut(){
              l=1;
          }
     }
-}
-
-void Map::background(){
-}
-
-void Map::afficherPersonnage(Joueur *joueur)
-{
-    QGraphicsPixmapItem *apparencePersonnage =  new QGraphicsPixmapItem(joueur->getTile());
-    apparencePersonnage->setPos(joueur->getPosX(),joueur->getPosY());
-    apparencePersonnage->setZValue(100);//pour etre sur
-    this->mapScene->addItem(apparencePersonnage);
-}
-
-void Map::affichageMonstre(Hostile *hostil){
-    QGraphicsPixmapItem *apparencePersonnage =  new QGraphicsPixmapItem(hostil->getTile());
-    apparencePersonnage->setPos(hostil->getPosX(),hostil->getPosY());
-    apparencePersonnage->setZValue(100);//pour etre sur
-    this->mapScene->addItem(apparencePersonnage);
 }
 
 QGraphicsScene* Map::getMapScene()
